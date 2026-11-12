@@ -7,7 +7,7 @@ import json
 root = Path(__file__).resolve().parents[1]
 output = root / 'dist'
 output.mkdir(exist_ok=True)
-files = [root / name for name in ['index.html', 'README.md', 'REFERENCIAS.md', 'package.json', '.gitignore', 'EXECUTION_CONTEXT.md']]
+files = [root / name for name in ['index.html', 'README.md', 'REFERENCIAS.md', 'package.json', '.gitignore', '.nojekyll', 'EXECUTION_CONTEXT.md']]
 for directory in ['css', 'js', 'assets', 'docs', 'tests', 'scripts', '.github']:
     files.extend(p for p in (root / directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
 if (root / 'package-lock.json').exists():

@@ -5,7 +5,7 @@ Diccionario de inglés original para **E-Actividad 4.1 — Aplicar conocimientos
 Busca una palabra en inglés y consulta sus definiciones, categorías gramaticales, ejemplos, sinónimos, fonética, audio y fuentes cuando Dictionary API los proporciona. La interfaz está en español; el contenido del diccionario permanece en inglés.
 
 - Repositorio canónico: https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1
-- Publicación prevista: `https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/`. **Todavía no acreditada como desplegada.**
+- Sitio publicado: https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/ (deployment y búsqueda real verificados; audio externo con fallo, ver VALIDACION).
 - Equipo: `mmorfe-engineer` y `morfemartin`. La contribución independiente del segundo integrante sigue pendiente; consultar [colaboración](docs/COLABORACION.md).
 
 ## Ejecutar
@@ -47,7 +47,7 @@ El formulario permite consulta inmediata. `AbortController` y un contador de gen
 | `js/utils.js` | Debounce cancelable, validación y URLs HTTPS |
 | `tests/` | Pruebas de lógica y datos sintéticos exclusivos de pruebas |
 | `scripts/` | Servidor, pruebas de navegador, publicación y ZIP |
-| `.github/workflows/` | Verificación y despliegue preparados |
+| `scripts/workflows/` | Plantillas opcionales de verificación y despliegue |
 
 ## Verificar
 
@@ -61,11 +61,11 @@ node scripts/live-check.mjs
 
 `npm test` usa únicamente el runner nativo de Node. Playwright y axe son dependencias de desarrollo. Las pruebas de navegador cubren respuestas controladas; `live-check.mjs` consulta el servicio y audio reales. No confundir datos de prueba con resultados de producción. Los informes y capturas se escriben en `artifacts/`.
 
-En esta sesión pasaron las **18 pruebas de lógica y preferencias**. El entorno impidió abrir sockets locales y arrancar Chromium. **Responsive, axe, audio real y publicación todavía no se acreditan como verificados.** Detalle en [VALIDACION](docs/VALIDACION.md).
+Pasaron **18 pruebas de lógica y preferencias y 30 comprobaciones de navegador**, incluyendo cinco anchos responsive y tres auditorías axe. Pages está publicado y la API real devuelve definiciones; el audio externo falla y no se declara aprobado. Detalle y límites en [VALIDACION](docs/VALIDACION.md).
 
 ## Publicar y entregar
 
-Activar **Settings → Pages → Source → GitHub Actions** desde una cuenta administradora. El workflow de Pages despliega después de una verificación exitosa en `main`, o manualmente. Publica solo `index.html`, `css/`, `js/` y `assets/`; luego ejecuta una búsqueda contra la URL publicada.
+Pages está configurado en **Deploy from a branch → main → /**, con despliegue nativo de GitHub. El token CLI no posee scope `workflow`: las plantillas están en `scripts/workflows/`, sin activarse. Para adoptar esa alternativa en el futuro, un administrador debe habilitar el permiso y trasladarlas a `.github/workflows/`. La publicación actual no depende de ellas. `node scripts/prepare-site.mjs` conserva la opción de preparar únicamente los recursos estáticos en `dist/site/`.
 
 ```sh
 npm run package
@@ -76,6 +76,7 @@ Produce `dist/renaissance-lexicon-e4-1.zip` y un manifiesto SHA-256 de los archi
 - [Arquitectura](docs/ARQUITECTURA.md)
 - [Matriz académica](docs/RUBRICA.md)
 - [Validación y límites de evidencia](docs/VALIDACION.md)
+- [Política vinculante de autoría](docs/CONTRATO_MAESTRO.md)
 - [Tarea real del segundo integrante](docs/COLABORACION.md)
 - [Guion del video](docs/GUIA_VIDEO.md)
 - [Entrega y pendientes](docs/ENTREGA.md)

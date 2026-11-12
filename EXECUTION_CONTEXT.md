@@ -29,3 +29,9 @@ La cuenta del conector GitHub se identificó como `morfemartin`; la lectura del 
 El usuario confirmó después que la conexión principal ya es `mmorfe-engineer` y autorizó continuar publicando. Al verificar, las herramientas GitHub devolvieron `Unknown tool` aunque el gestor de plugins reportó GitHub instalado y habilitado. No fue posible verificar la nueva identidad ni escribir en el remoto; no se solicitó cambiar otra vez de cuenta.
 
 Continúa pendiente habilitar la escritura de `.git` mediante la configuración del entorno. El servidor local y Chromium también fueron bloqueados por las restricciones del entorno. No declarar la entrega completada sin resolver las verificaciones, contribuciones, publicación y video.
+
+## Estado vigente tras reanudación · 2026-11-12
+
+Los bloqueos anteriores son históricos. Git quedó inicializado en `main`, origin canónico confirmado y commit inicial `2b90387` publicado desde `mmorfe-engineer`. Pages funciona mediante despliegue nativo desde main; las plantillas se conservan en scripts/workflows porque el token CLI carece de scope workflow. Chromium ya ejecutó 30 comprobaciones y las 18 pruebas de lógica pasaron. La búsqueda pública funciona; el audio externo devolvió 404/403, sin afirmar reproducción exitosa.
+
+La política añadida por el usuario después del primer push es vinculante: docs/CONTRATO_MAESTRO.md. El bloque técnico de pronunciación resiliente y accesible queda reservado a morfemartin. Su acceso write está verificado; sus commits siguen pendientes. No se permite simularlos ni reescribir el historial inicial para aparentar reparto. Ver ENTREGA y COLABORACION para el estado final y tareas humanas.

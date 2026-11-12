@@ -19,6 +19,7 @@ if (!process.env.LIVE_URL) {
   });
 }
 let report;
+const externalFailures = [];
 try {
   await page.goto(process.env.LIVE_URL || 'https://lexicon.test/');
   const responsePromise = page.waitForResponse(response => response.url().includes('api.dictionaryapi.dev/api/v2/entries/en/hello'));
@@ -30,15 +31,27 @@ try {
   if (await audio.count()) {
     // La descarga real acredita disponibilidad del recurso, no escucha humana del sonido.
     const resource = await context.request.get(await audio.getAttribute('src'));
-    assert.equal(resource.ok(), true); assert.ok((await resource.body()).length > 0); audioStatus = `Recurso de audio HTTP ${resource.status()}`;
+    audioStatus = `Recurso de audio HTTP ${resource.status()}`;
+    if (!resource.ok()) externalFailures.push({ resource: await audio.getAttribute('src'), status: resource.status() });
+    else assert.ok((await resource.body()).length > 0);
     await page.locator('.audio-button').first().click();
     await page.waitForFunction(() => { const a = document.querySelector('audio'); return a && ((!a.paused && a.readyState >= 2) || a.ended || document.querySelector('.audio-message')?.textContent); });
-    assert.equal(await page.locator('.audio-message').first().textContent(), '');
+    const audioMessage = await page.locator('.audio-message').first().textContent();
+    if (audioMessage) externalFailures.push({ playback: audioMessage });
   }
   assert.deepEqual(errors, []);
+  const definitions = await page.locator('.definition-list li').count();
   await mkdir(path.join(root, 'artifacts'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'artifacts/live-hello.png'), fullPage: true });
-  report = { status: 'passed', date: new Date().toISOString(), url: page.url(), apiStatus: response.status(), definitions: await page.locator('.definition-list li').count(), audioStatus, errors };
+  await page.locator('#theme').selectOption('dark');
+  await page.locator('#font').selectOption('mono');
+  await page.reload();
+  assert.equal(await page.locator('#theme').inputValue(), 'dark');
+  assert.equal(await page.locator('#font').inputValue(), 'mono');
+  assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
+  await mkdir(path.join(root, 'artifacts'), { recursive: true });
+  report = { status: externalFailures.length ? 'failed-external-audio' : 'passed', date: new Date().toISOString(), url: page.url(), apiStatus: response.status(), definitions, audioStatus, externalFailures, preferences: 'Tema oscuro y fuente mono persistieron tras recargar', errors };
+  if (externalFailures.length) process.exitCode = 1;
   console.log(JSON.stringify(report));
 } catch (error) {
   report = { status: 'failed', date: new Date().toISOString(), error: error.message, errors };

@@ -1,50 +1,47 @@
 # Validación · evidencia del 12 de noviembre de 2026
 
-## Ejecutado localmente
+## Resultados actuales
 
-Entorno: Linux; Node.js **v26.1.0**, npm **11.13.0**.
+Entorno Linux, Node v26.1.0, Playwright 1.63.0, Chromium 153.0.8010.12, axe-core 4.10.3.
 
-`node tests/unit.test.js`: **18 pruebas aprobadas, 0 fallos**. `npm test` también finaliza con código 0; en este entorno el runner presenta el archivo completo como una suite en su resumen, por eso se ejecutó directamente para conservar el detalle de los dieciocho casos.
+- `npm test`: **18 pruebas, 18 aprobadas, 0 fallos**. Validación, debounce, URLs, normalización, HTTP, red, abort, JSON y preferencias.
+- `npm run test:browser`: **30 comprobaciones aprobadas, 0 fallos, 0 excepciones JS**. Evidencia: [browser-report.json](evidencias/browser-report.json).
+- Responsive: sin overflow y controles visibles de al menos 44 px en **320, 375, 768, 1024 y 1440 px**. Capturas de los cinco anchos en `artifacts/`; muestras versionadas en `docs/evidencias/`. Se inspeccionó visualmente la captura móvil de 375 px.
+- Axe WCAG A/AA: **0 infracciones detectadas** en inicio, resultado oscuro y resultado móvil claro. Esto no certifica cumplimiento completo de WCAG.
+- Teclado, enlace de salto, Enter, cinco fuentes, tema sistema/claro/oscuro, persistencia y almacenamiento bloqueado aprobados en navegador con respuestas controladas.
+- Audio controlado: invocación, error, fin de reproducción y recuperación del botón aprobados. Esto no demuestra reproducción de un recurso remoto.
 
-Casos: validación y normalización de espacios/apóstrofos/guiones; debounce con pausa; cancelación; URLs seguras; múltiples entradas y campos semánticos; datos incompletos; URL codificada y AbortSignal; HTTP 404, 429 y 500; red frente a abort; JSON inválido y respuesta sin entradas. Seis casos adicionales comprueban preferencias: seguimiento del sistema, prioridad y persistencia manual, restauración, almacenamiento bloqueado y dos formas de datos corruptos. Estas pruebas usan un DOM mínimo controlado para preferencias, no un navegador.
+## Sitio y proveedor reales
 
-La auditoría de fuentes comprobó IDs HTML únicos, asociaciones `for`/`aria-describedby`, existencia de recursos referenciados e imports, sintaxis de los seis módulos y cinco archivos de fuentes distintos. No se detectaron fallos en esas comprobaciones.
+URL devuelta por Pages y visitada con Chromium: https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/.
 
-`node --check` pasó para `js/app.js`, `js/ui.js`, `scripts/browser-check.mjs` y `scripts/live-check.mjs`. El preparador de sitio generó `dist/site` sin compilación.
+Deployment inicial exitoso: https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/actions/runs/43284501043, fuente `2b90387`. Datos en [deployment-inicial.json](evidencias/deployment-inicial.json).
 
-## Intentado y bloqueado por el entorno
+`LIVE_URL=https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/ node scripts/live-check.mjs` obtuvo:
 
-| Acción | Evidencia | Consecuencia |
-|---|---|---|
-| Iniciar servidor HTTP local | `listen EPERM: operation not permitted 127.0.0.1:4173` | No se pudo servir una sesión interactiva aquí |
-| Arrancar Chromium con Playwright | `sandbox_host_linux.cc:41 ... shutdown: Operation not permitted` | No hay capturas ni comprobación visual local |
-| Consultar GitHub por CLI/Git | `Could not resolve host: github.com` | Usar conector conectado si su identidad es apropiada |
-| Inicializar Git en workspace | `.git/info/: Read-only file system` | No se pudo configurar `origin`, ramas ni commits locales |
-| Consultar API real desde herramienta web | Endpoint no accesible por esa herramienta | No acredita funcionamiento del proveedor en vivo |
+- Dictionary API real: **HTTP 200**, `hello`, **7 definiciones**.
+- Preferencias reales: oscuro y mono persistieron tras recargar.
+- Excepciones JavaScript: **0**.
+- Audio: `hello-au.mp3` devolvió **HTTP 404** en Playwright; el botón anunció «No se pudo reproducir el audio». Curl devolvió HTTP 403 en los recursos AU y UK. No se atribuye una causa definitiva a esta diferencia entre clientes.
+- Resultado global de la prueba en vivo: **`failed-external-audio`, código 1**. No se oculta ni convierte el fallo en éxito. Informe: [live-report.json](evidencias/live-report.json); captura real: [live-hello.png](evidencias/live-hello.png).
 
-No se modificaron protecciones del entorno ni identidades Git para evitar estos bloqueos.
+La prueba conserva el fallo externo y comprueba igualmente búsqueda y preferencias. La mejora funcional de pronunciaciones alternativas está reservada a `morfemartin` en COLABORACION.
 
-Después de que el usuario confirmó la autenticación principal como `mmorfe-engineer`, se intentó verificarla. Las herramientas de GitHub comenzaron a devolver `Unknown tool` para identidad y lectura del repositorio; el gestor de plugins sí informó GitHub instalado y habilitado. Esto bloquea la integración en esta sesión, pero no demuestra que la autenticación indicada por el usuario sea incorrecta. No se publicaron archivos ni se alteró el remoto.
+## Límites pendientes
 
-## Preparado para ejecución en un entorno compatible
+Revisión manual con lector de pantalla, zoom 200 %, escucha humana y revisión completa de interfaz por el segundo integrante todavía pendientes. Las pruebas automáticas y una captura inspeccionada no sustituyen esas comprobaciones.
 
-`scripts/browser-check.mjs` usa Playwright y axe. Sirve la aplicación desde respuestas controladas del navegador, sin servidor externo. Comprueba debounce, envío sin duplicado, estado inicial/carga, DOM, errores, concurrencia, audio controlado, sinónimos, temas, cinco fuentes, persistencia, almacenamiento bloqueado, teclado e inyección de texto.
-
-Verifica anchos **320, 375, 768, 1024 y 1440**: ausencia de overflow horizontal, controles dentro del viewport, alturas de interacción y capturas. Ejecuta axe WCAG A/AA en inicio, resultado oscuro y resultado móvil claro. Genera `artifacts/browser-report.json` y PNG. **Pendiente de ejecutar; no se afirma que haya pasado.**
-
-`scripts/live-check.mjs` consulta **Dictionary API real** para `hello`, comprueba definición y, si existe, descarga el audio real e intenta reproducirlo. Con `LIVE_URL` verifica el sitio público. Genera informe y captura independientes. **Pendiente de ejecutar con red y navegador disponibles.**
-
-La verificación automática no sustituye revisión visual, zoom, escucha humana ni lector de pantalla. Esas revisiones son parte de la tarea real de `morfemartin`.
+Los bloqueos de la sesión anterior (Git de solo lectura, Chromium, DNS y herramientas ausentes) dejaron de impedir las verificaciones actuales. La instalación de dependencias necesitó autorización por el caché npm de solo lectura; se utilizó `/tmp/renaissance-npm-cache`. La CLI tiene acceso al repositorio y configura Pages, pero su token no incluye scope `workflow`; por ello se usa publicación nativa desde main y las plantillas permanecen en scripts/workflows.
 
 ## Reproducir
 
 ```sh
+npm ci --ignore-scripts
 npm test
-npm install --ignore-scripts
 npx playwright install --with-deps chromium
 npm run test:browser
-node scripts/live-check.mjs
 LIVE_URL=https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/ node scripts/live-check.mjs
+npm run package
 ```
 
-El último comando solo corresponde cuando exista una publicación. Una API externa caída debe registrarse como tal, sin desactivar pruebas para afirmar éxito.
+Los resultados posteriores pueden variar por disponibilidad de servicios externos. Cada ejecución escribe su fecha y resultados; no declarar éxito si devuelve error.

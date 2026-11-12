@@ -8,3 +8,5 @@ coverage/
 artifacts/
 dist/
 .playwright/
+.codex/
+.aws/

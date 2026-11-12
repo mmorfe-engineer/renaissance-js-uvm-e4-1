@@ -1,0 +1,19 @@
+{
+  "status": "failed-external-audio",
+  "date": "2026-11-12T18:55:31.326Z",
+  "url": "https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/",
+  "apiStatus": 200,
+  "definitions": 7,
+  "audioStatus": "Recurso de audio HTTP 404",
+  "externalFailures": [
+    {
+      "resource": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3",
+      "status": 404
+    },
+    {
+      "playback": "No se pudo reproducir el audio. Puedes volver a intentarlo."
+    }
+  ],
+  "preferences": "Tema oscuro y fuente mono persistieron tras recargar",
+  "errors": []
+}
