@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es" data-font="editorial">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Renaissance Lexicon: diccionario de inglés con definiciones, fonética y audio. Proyecto de JavaScript de la Universidad Valle del Momboy.">
+  <meta name="color-scheme" content="light dark">
+  <title>Renaissance Lexicon · Diccionario de inglés</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al diccionario</a>
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="Renaissance Lexicon, inicio"><span class="brand-mark" aria-hidden="true">R<span>l</span></span><span>Renaissance <strong>Lexicon</strong></span></a>
+    <span class="edition">JavaScript Edition <span aria-hidden="true">/</span> E-Actividad 4.1</span>
+  </header>
+  <main id="main" class="wrap" tabindex="-1">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">EL LENGUAJE ABRE POSIBILIDADES</p>
+      <h1 id="page-title">Una palabra.<br><em>Un nuevo significado.</em></h1>
+      <p class="intro-copy">Explora el inglés, definición a definición. Encuentra su significado, descubre cómo suena y sigue aprendiendo.</p>
+    </section>
+    <section class="dictionary" aria-label="Diccionario de inglés">
+      <div class="preferences">
+        <p class="section-label"><span class="small-dot" aria-hidden="true"></span> Tu espacio de lectura</p>
+        <div class="preference-controls">
+          <div class="preference"><label for="font">Tipografía</label><select id="font"><option value="editorial">Editorial · Noto Serif</option><option value="classic">Clásica · Liberation</option><option value="sans">Moderna · Noto Sans</option><option value="humanist">Humanista · DejaVu</option><option value="mono">Código · DejaVu Mono</option></select></div>
+          <div class="preference"><label for="theme">Tema</label><select id="theme"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Oscuro</option></select></div>
+        </div>
+      </div>
+      <form id="search-form" role="search" novalidate>
+        <label class="search-label" for="word">¿Qué palabra quieres descubrir?</label>
+        <div class="search-box"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="word" name="word" type="search" placeholder="Escribe una palabra en inglés…" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="80" aria-describedby="search-help validation"><button type="submit">Buscar <span aria-hidden="true">↗</span></button></div>
+        <div class="search-notes"><p id="search-help">Diccionario en inglés · Búsqueda automática al dejar de escribir.</p><span>Dictionary API</span></div>
+        <p id="validation" class="validation" hidden></p>
+      </form>
+      <p id="status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div id="results" aria-busy="false"></div>
+      <noscript><p class="state-message">Activa JavaScript para buscar palabras, escuchar pronunciaciones y cambiar las preferencias.</p></noscript>
+    </section>
+    <aside class="reading-note"><span aria-hidden="true">Aa</span><p>Aprender empieza con curiosidad.<br><strong>Haz de cada palabra un descubrimiento.</strong></p></aside>
+  </main>
+  <footer class="site-footer wrap"><p><strong>Renaissance Lexicon</strong><br>Universidad Valle del Momboy · FrontEndIVIVFI2026C</p><div><a href="https://dictionaryapi.dev/" target="_blank" rel="noopener noreferrer">Dictionary API ↗</a><a href="https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1" target="_blank" rel="noopener noreferrer">Código en GitHub ↗</a></div></footer>
+</body>
+</html>

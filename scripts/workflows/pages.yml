@@ -1,0 +1,47 @@
+name: Publicar GitHub Pages
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Verificación académica']
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/prepare-site.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/site
+      - name: Desplegar
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - run: npm install --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - name: Verificar sitio publicado y API real
+        env:
+          LIVE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node scripts/live-check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verificacion-publicacion
+          path: artifacts/

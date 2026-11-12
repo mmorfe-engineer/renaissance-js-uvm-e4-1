@@ -1,0 +1,30 @@
+Evidencia local · 2026-11-12
+Comando: node tests/unit.test.js
+Entorno: Node v26.1.0
+
+✔ valida espacios, mayúsculas, apóstrofos y guiones sin permitir símbolos arbitrarios (2.378133ms)
+✔ debounce ejecuta una sola consulta con el último valor, después de la pausa (86.279537ms)
+✔ cancelar debounce evita consultas al enviar o limpiar (40.004358ms)
+✔ URLs de audio y fuentes excluyen protocolos inseguros y entradas inválidas (0.716521ms)
+✔ normaliza múltiples entradas, fonéticas, verbos, ejemplos y sinónimos sin duplicar (1.283489ms)
+✔ tolera campos ausentes y formas inesperadas sin romper el normalizador (0.581757ms)
+✔ fetch codifica la palabra, propaga signal y procesa JSON (49.504828ms)
+✔ HTTP 404 produce un error comprensible de tipo not-found (0.689009ms)
+✔ HTTP 429 produce un error comprensible de tipo api (0.391778ms)
+✔ HTTP 500 produce un error comprensible de tipo api (0.459706ms)
+✔ distingue red desconectada de solicitud cancelada (0.592477ms)
+✔ rechaza JSON ilegible y respuestas sin entradas válidas (1.028579ms)
+✔ tema inicial sigue al sistema y actualiza cambios del SO (3.281286ms)
+✔ elección manual tiene prioridad y persiste tema y fuente (0.473582ms)
+✔ restaura preferencias permitidas y descarta JSON inválido o valores desconocidos (0.278586ms)
+✔ almacenamiento bloqueado mantiene cambios funcionales durante la sesión (0.405976ms)
+✔ preferencias corruptas usan valores por defecto: {broken (0.32381ms)
+✔ preferencias corruptas usan valores por defecto: {"theme":"unknown","font":"unknown"} (0.218582ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 200.55924
