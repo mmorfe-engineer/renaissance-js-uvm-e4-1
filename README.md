@@ -20,7 +20,7 @@ Un diccionario de inglés para explorar significados, partes de la oración, eje
 
 **[Repositorio](https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1) · [Cumplimiento del pliego](docs/CUMPLIMIENTO_PLIEGO.md) · [Pruebas y evidencia](docs/VALIDACION.md) · [PR #1 integrado](https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/pull/1)**
 
-Sitio comprobado con Chromium sobre GitHub Pages: HTTP 200, búsqueda real `hello` y preferencias persistentes. El audio remoto no está aprobado: ambas URLs recibidas devolvieron HTTP 404 en esta ejecución y el control anunció el agotamiento de alternativas. [Informe público completo](docs/evidencias/cierre/public-report.json).
+Sitio comprobado con Chromium sobre GitHub Pages: HTTP 200, búsqueda real `hello` y preferencias persistentes. **TR-22: BLOQUEADO — dependencia externa.** La lógica de audio está implementada y validada mediante pruebas controladas; no se acreditó reproducción pública de los recursos de Dictionary API. Para `hello`, ambas URLs medidas devolvieron HTTP 404. El usuario confirmó ausencia de reproducción audible en `cat`, `house`, `street` y `hello`; no se midieron códigos HTTP para las tres primeras. [Informe público](docs/evidencias/cierre/public-report.json) · [Evidencia manual](docs/evidencias/cierre/manual-audio-report.json). No se añadió otra API, audio propio ni SpeechSynthesis para fabricar un PASS.
 
 ## La aplicación en funcionamiento
 
@@ -69,7 +69,7 @@ Capturas del 2026-11-12, obtenidas con `scripts/public-check.mjs` sobre la URL p
 | GitHub estudiante 2 | [morfemartin](https://github.com/morfemartin) |
 | Profesor | **Anggelo Huz** |
 
-El video explicativo forma parte de la entrega. Existe un [guion de 8:45](docs/GUIA_VIDEO.md); **la grabación y su URL están pendientes**. No se declara completada la entrega académica.
+El video es un **entregable académico separado, excluido de esta fase de cierre técnico**. Existe un [guion de 8:45](docs/GUIA_VIDEO.md); la grabación y su URL permanecen pendientes. El cierre técnico de repositorio/Pages conserva explícitos el bloqueo externo del audio y los límites de revisión manual; no equivale a completar la entrega académica.
 
 ## Propósito y alcance
 
@@ -213,7 +213,7 @@ La fuente única es [CUMPLIMIENTO_PLIEGO.md](docs/CUMPLIMIENTO_PLIEGO.md). Los i
 
 Se comprobaron **320, 375, 768, 1024 y 1440 px**: ausencia de overflow, controles dentro del viewport y alturas mínimas de 44 px. El selector de pronunciación se revisa automáticamente en combinaciones de dos temas y cinco tipografías. Las capturas públicas móvil y desktop también se inspeccionaron visualmente.
 
-Axe no detectó infracciones en los escenarios auditados. Se comprobaron automáticamente enlace de salto, teclado, foco de audio, etiquetas y anuncios. **Quedan pendientes revisión humana completa de teclado, zoom real 200 %, lector de pantalla y escucha humana**. No se declara certificación WCAG.
+Axe no detectó infracciones en los escenarios auditados. Se comprobaron automáticamente enlace de salto, teclado, foco de audio, etiquetas y anuncios. **Quedan pendientes revisión humana completa de teclado, zoom real 200 % y lector de pantalla**. La prueba auditiva manual ya fue realizada por el usuario en cuatro palabras, sin audio audible; la reproducción satisfactoria continúa sin acreditarse. No se declara certificación WCAG.
 
 ## Estructura del repositorio
 

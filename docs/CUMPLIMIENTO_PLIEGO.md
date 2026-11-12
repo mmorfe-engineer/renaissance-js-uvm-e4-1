@@ -29,7 +29,7 @@ VERIFICADO significa evidencia suficiente para el alcance descrito. PENDIENTE re
 | TR-19 | Mostrar significados | Listas de definiciones | Búsqueda pública real y normalización comprobadas | VERIFICADO |
 | TR-20 | Mostrar sinónimos | Sinónimos de categoría/definición y botones de consulta | Browser: sinónimo inicia otra búsqueda | VERIFICADO |
 | TR-21 | Mostrar pronunciación textual | Colección de fonéticas | Normalización, DOM y captura de hello | VERIFICADO |
-| TR-22 | Reproducir audio de pronunciación | Alternativas suministradas, fallback y reintento | Implementación y audio simulado aprobados; recursos reales fallan externamente, sin reproducción acreditada | BLOQUEADO |
+| TR-22 | Reproducir audio de pronunciación | Funcionalidad implementada y validada: botón, reproducción controlada válida, selección, fallback, reintento, cancelación y fallo total | BLOQUEADO — dependencia externa: hello, dos URLs HTTP 404; usuario sin audio audible en cat/house/street/hello. HTTP de cat/house/street no medido. [Evidencia manual](evidencias/cierre/manual-audio-report.json) y live-report | BLOQUEADO |
 | TR-23 | Usar botón de reproducción personalizado | .audio-button, play(), estado y mensajes | Browser: invocación, fallback, fallo total, cancelación y foco | VERIFICADO |
 | TR-24 | Ocultar controles nativos de audio | audio.hidden; sin atributo controls | Aserción de navegador y DOM público | VERIFICADO |
 | TR-25 | Aplicar debounce al escribir | 450 ms, cancelación al enviar/limpiar | Casos temporizados unitarios y browser | VERIFICADO |
@@ -48,3 +48,9 @@ El estado de TR-22 se refiere al proveedor/red en las ejecuciones registradas; n
 Las comprobaciones manuales no ejecutadas permanecen pendientes. Los gráficos de cumplimiento se generan leyendo esta tabla, sin cifras escritas manualmente. Video, duración real y entrega manual en UVM no quedan completados por publicar el repositorio.
 
 La evidencia de ejecución identifica el commit de código evaluado. El HEAD documental final, deployment, recursos públicos y ZIP se relacionan en dist/FINAL_DELIVERY.json al final de la fase, evitando referencias circulares dentro del propio commit.
+
+## Alcance del cierre técnico actual
+
+**TR-22 permanece BLOQUEADO — dependencia externa.** La lógica propia está implementada y validada con recursos controlados. La reproducción pública no pudo acreditarse con los recursos suministrados por Dictionary API: para hello existen dos HTTP 404 medidos. Para cat, house y street solo consta ausencia de audio audible confirmada por el usuario; no se infiere HTTP ni causa particular. No se añadieron segunda API, audio propio ni SpeechSynthesis para fabricar un PASS.
+
+El intento de escucha ya se ejecutó; no tuvo reproducción audible. Esto no cierra el requisito ni demuestra calidad perceptual. Los requisitos de video TR-10 a TR-14 permanecen en la matriz académica, pero quedan fuera de esta fase técnica.

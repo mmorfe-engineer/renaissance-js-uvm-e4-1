@@ -1,6 +1,6 @@
 # Entrega y auditoría de cierre
 
-**Estado: publicación técnica y contribución de ambos integrantes integradas; entrega académica aún incompleta por video, revisiones humanas y audio externo.** Los datos académicos ya están confirmados.
+**Estado: cierre técnico de repositorio y Pages verificado, con TR-22 BLOQUEADO — dependencia externa y límites manuales explícitos.** El video queda fuera de esta fase como entregable académico separado. Los datos académicos y la contribución de ambos integrantes están confirmados.
 
 ## Acceso y equipo
 
@@ -23,7 +23,7 @@ Los commits documentales de cierre posteriores se identifican en el historial. H
 - Responsive: cinco viewports 320–1440 px y controles de al menos 44 px.
 - Axe: sin infracciones detectadas en escenarios ejecutados; no certificación WCAG.
 - Sitio público: HTTP 200, hello real con siete definiciones y preferencias persistentes.
-- Audio: ambas URLs reales HTTP 404. Fallback y mensaje de fallo total funcionan; no reproducción ni escucha acreditadas. live-check conserva código 1.
+- Audio: lógica propia implementada y validada con recursos controlados. Para hello, dos URLs reales HTTP 404. El usuario probó cat, house, street y hello sin reproducción audible; HTTP de cat/house/street no medido. [Registro manual](evidencias/cierre/manual-audio-report.json). TR-22: BLOQUEADO — dependencia externa; live-check conserva código 1. No se añadió otra API, audio propio ni SpeechSynthesis para fabricar un PASS.
 - Capturas reales de Pages, hero y gráficos versionados en docs/assets. README y matriz reflejan los límites reales.
 - Cumplimiento: fuente única [CUMPLIMIENTO_PLIEGO](CUMPLIMIENTO_PLIEGO.md); códigos TR internos, no oficiales. Gráficos derivados automáticamente.
 
@@ -41,11 +41,13 @@ Pages nativo desde main, carpeta /, con HTTPS y .nojekyll. Las plantillas de scr
 
 Se regeneran únicamente después de completar los cambios. El ZIP anterior al merge queda obsoleto como entrega actual; los reportes históricos versionados se conservan como evidencia de su momento. El paquete MORFEMARTIN_CONTRIBUTION_PACK es un artefacto de preparación, no el ZIP académico final.
 
-## Pendientes humanos y externos
+## Pendientes técnicos humanos y externos
 
-- **Video real de ambos integrantes**, máximo 10 minutos, funcionamiento y explicación de código; URL y duración aún pendientes. [Guion actualizado](GUIA_VIDEO.md).
-- **Revisión humana completa** de teclado/foco, zoom real 200 %, lector de pantalla y escucha. Las pruebas automatizadas aprobadas no los sustituyen.
+- **Revisión humana completa** de teclado/foco, zoom real 200 % y lector de pantalla. Las pruebas automatizadas no los sustituyen. La prueba auditiva del usuario ya está registrada como ejecutada sin reproducción audible; la reproducción satisfactoria sigue sin acreditarse.
 - **Disponibilidad/reproducción de audio externo**: registrar un recurso realmente operativo cuando el proveedor lo permita; no fabricar URLs ni ocultar el bloqueo actual.
-- **Entrega manual en la plataforma UVM** y revisión de acceso al video por el profesor.
 
-Ningún dato académico solicitado permanece pendiente. El requisito de commits de ambos integrantes sí está acreditado. El cierre académico completo requiere resolver los puntos anteriores; la publicación técnica y el ZIP no los reemplazan.
+## Entregables académicos fuera de esta fase
+
+Video real de ambos integrantes (máximo diez minutos), URL/duración y entrega manual en UVM permanecen pendientes como tareas académicas separadas. [Guion](GUIA_VIDEO.md). No bloquean la verificación técnica de repositorio, Pages y ZIP en esta fase.
+
+Ningún dato académico solicitado permanece pendiente. El requisito de commits de ambos integrantes sí está acreditado. El cierre académico completo requiere sus entregables separados; la publicación técnica y el ZIP no los reemplazan.

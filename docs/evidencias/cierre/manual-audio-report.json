@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-11-12T22:11:16.731445+00:00",
+  "observedAt": null,
+  "source": "Confirmación manual del usuario en esta conversación",
+  "url": "https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/",
+  "observer": "usuario",
+  "browser": null,
+  "status": "EJECUTADA_SIN_REPRODUCCION_AUDIBLE",
+  "results": [
+    {
+      "word": "cat",
+      "audiblePlayback": false,
+      "httpStatusMeasuredInManualReview": null,
+      "observation": "No se obtuvo reproducción audible"
+    },
+    {
+      "word": "house",
+      "audiblePlayback": false,
+      "httpStatusMeasuredInManualReview": null,
+      "observation": "No se obtuvo reproducción audible"
+    },
+    {
+      "word": "street",
+      "audiblePlayback": false,
+      "httpStatusMeasuredInManualReview": null,
+      "observation": "No se obtuvo reproducción audible"
+    },
+    {
+      "word": "hello",
+      "audiblePlayback": false,
+      "httpStatusMeasuredInManualReview": null,
+      "observation": "No se obtuvo reproducción audible"
+    }
+  ],
+  "httpEvidence": {
+    "hello": {
+      "source": "docs/evidencias/cierre/live-report.json",
+      "scope": "Dos URLs de pronunciación de hello; evidencia automatizada independiente de la revisión manual"
+    },
+    "cat": null,
+    "house": null,
+    "street": null
+  },
+  "limits": [
+    "No se suministraron fecha/hora exactas, navegador ni configuración de volumen de la prueba manual",
+    "No se atribuyen códigos HTTP ni causa específica a cat, house o street",
+    "La observación sin audio audible no acredita reproducción exitosa ni calidad perceptual"
+  ],
+  "technicalScope": {
+    "ownAudioLogic": "Implementada y validada mediante pruebas controladas",
+    "TR-22": "BLOQUEADO — dependencia externa",
+    "substituteProvidersAdded": false,
+    "ownAudioAdded": false,
+    "speechSynthesisAdded": false
+  }
+}

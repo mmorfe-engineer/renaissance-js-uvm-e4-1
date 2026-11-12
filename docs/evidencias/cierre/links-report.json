@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-12T21:32:24.803199+00:00",
+  "date": "2026-11-12T22:12:25.466736+00:00",
   "documents": 11,
   "local": [
     {
@@ -15,6 +15,11 @@
     {
       "source": "README.md",
       "target": "docs/evidencias/cierre/public-report.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/manual-audio-report.json",
       "exists": true
     },
     {
@@ -293,6 +298,11 @@
       "exists": true
     },
     {
+      "source": "docs/CUMPLIMIENTO_PLIEGO.md",
+      "target": "evidencias/cierre/manual-audio-report.json",
+      "exists": true
+    },
+    {
       "source": "docs/ENTREGA.md",
       "target": "COLABORACION.md",
       "exists": true
@@ -305,6 +315,11 @@
     {
       "source": "docs/ENTREGA.md",
       "target": "evidencias/cierre/",
+      "exists": true
+    },
+    {
+      "source": "docs/ENTREGA.md",
+      "target": "evidencias/cierre/manual-audio-report.json",
       "exists": true
     },
     {
@@ -395,6 +410,11 @@
     {
       "source": "docs/VALIDACION.md",
       "target": "evidencias/cierre/links-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/manual-audio-report.json",
       "exists": true
     }
   ],

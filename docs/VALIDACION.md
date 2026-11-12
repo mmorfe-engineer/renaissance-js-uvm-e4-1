@@ -27,7 +27,7 @@ Sitio visitado: https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/.
 | Recursos HTTP de audio | hello-au.mp3 y hello-uk.mp3: HTTP 404, text/html; ese cuerpo no cuenta como audio |
 | Reproducción del navegador | No acreditada: readyState 0, paused true; estado BLOQUEADO |
 | Fallback real | Se intentan las dos alternativas y se anuncia fallo total |
-| Escucha humana | PENDIENTE; no se sustituye por descarga ni por play() simulado |
+| Prueba auditiva manual del usuario | EJECUTADA sin reproducción audible en cat, house, street y hello; no es reproducción exitosa |
 
 `live-check.mjs` devuelve **1**, `failed-external-audio`. `public-check.mjs` devuelve **1**, `partial-external-service`. Esos códigos se conservan; no se declara que el proveedor funcione porque la interfaz haya pasado las pruebas. [Live report](evidencias/cierre/live-report.json).
 
@@ -44,7 +44,7 @@ Axe: cero infracciones detectadas en los escenarios ejecutados. Las tres auditor
 | Teclado completo y orden de foco en todos los escenarios | PENDIENTE |
 | Zoom real de navegador al 200 % | PENDIENTE |
 | Lector de pantalla y anuncios efectivos | PENDIENTE |
-| Escucha humana y calidad perceptual | PENDIENTE / dependiente de recurso disponible |
+| Prueba auditiva manual en cat, house, street y hello | EJECUTADA por el usuario, sin audio audible; calidad perceptual no evaluable |
 
 ## Capturas públicas
 
@@ -68,3 +68,13 @@ Después del commit documental final se espera Pages y se repite la comprobació
 ## Presentación y enlaces
 
 Los tres diagramas Mermaid del README se parsearon y renderizaron en Chromium con Mermaid; [informe](evidencias/cierre/diagrams-report.json). Los SVG locales pasaron parseo XML. Los enlaces Markdown y recursos de imagen se comprobaron contra archivos locales y mediante HTTP; [informe de enlaces](evidencias/cierre/links-report.json). La revisión se repite tras el commit final para registrar el estado publicado.
+
+## Evidencia manual incorporada al cierre técnico
+
+El usuario confirmó pruebas sobre GitHub Pages con **cat, house, street y hello**, sin reproducción audible en ninguno. [Registro de la confirmación](evidencias/cierre/manual-audio-report.json). La fecha de registro corresponde a esta incorporación; no se inventan fecha exacta de observación, navegador ni configuración de audio.
+
+Para hello hay evidencia automatizada independiente de dos URLs HTTP 404. **Para cat, house y street no se midió HTTP y no se les atribuye 404 ni una causa específica.** La observación manual es únicamente ausencia de reproducción audible.
+
+La lógica propia —botón personalizado, reproducción con recurso válido controlado, selección, fallback, reintento, cancelación y fallo total— está implementada y validada por las pruebas de navegador. TR-22 sigue **BLOQUEADO — dependencia externa** porque no se acredita reproducción pública de los recursos suministrados por Dictionary API. No se añadió una segunda API, audio propio ni SpeechSynthesis para fabricar un PASS.
+
+El video queda excluido de esta fase técnica como entregable académico separado. Siguen pendientes la revisión humana completa de teclado/foco, zoom real 200 % y lector de pantalla; no se convierten en PASS por la prueba auditiva.

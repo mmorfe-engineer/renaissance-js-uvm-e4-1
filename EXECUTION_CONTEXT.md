@@ -9,6 +9,6 @@ PR #1 integrado con merge normal c4ab9c15763b18fdc07dfc3c162cb959938de73b, conse
 
 Datos académicos confirmados por el usuario: Martin Morfe.°., C.I. 8.263.711, mmorfe-engineer; Martin Alejandro Morfe Carballo, C.I. 30.539.018, morfemartin; profesor Anggelo Huz. UVM, FrontEndIVIVFI2026C · Taller Front End, E-Actividad 4.1, opción #2, 15 %, cierre 14/11/2026 23:59 Venezuela.
 
-Verificación post-merge: evidencia en docs/evidencias/cierre; unitarias, browser, Pages y API real. Audio externo HTTP 404; reproducción no acreditada. Revisión manual de teclado completo, zoom 200 %, lector y escucha pendientes. No confundirlos con pruebas automatizadas aprobadas. Video real y entrega UVM pendientes.
+Verificación post-merge: evidencia en docs/evidencias/cierre; unitarias, browser, Pages y API real. Audio externo HTTP 404; reproducción no acreditada. Revision humana de teclado completo, zoom 200 % y lector pendiente. El usuario confirmó pruebas auditivas en cat, house, street y hello sin reproducción audible; solo hello tiene dos HTTP 404 medidos. HTTP de las otras tres palabras no medido. No confundirlos con pruebas automatizadas aprobadas. Video real y entrega UVM son entregables académicos separados, fuera de esta fase de cierre técnico.
 
 El HEAD final y deployment se consultan en dist/FINAL_DELIVERY.json después del cierre, evitando circularidad documental. Los ZIP previos y contribution packs no son la entrega final tras nuevos cambios.

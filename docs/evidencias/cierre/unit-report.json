@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-12T21:23:08.874Z",
-  "sourceCommit": "c4ab9c15763b18fdc07dfc3c162cb959938de73b",
+  "date": "2026-11-12T22:11:53.507Z",
+  "sourceCommit": "ab83d7f050f6bffaa1135bf33717c6d1081c605f",
   "command": "node --test --test-reporter=tap tests/unit.test.js",
   "tests": 20,
   "passed": 20,

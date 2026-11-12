@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-12T21:21:23.937Z",
-  "sourceCommit": "c4ab9c15763b18fdc07dfc3c162cb959938de73b",
+  "date": "2026-11-12T22:11:23.117Z",
+  "sourceCommit": "ab83d7f050f6bffaa1135bf33717c6d1081c605f",
   "url": "https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/",
   "browser": "153.0.8010.12",
   "checks": [
@@ -64,8 +64,38 @@
   "manual": {
     "zoom200": "PENDIENTE",
     "screenReader": "PENDIENTE",
-    "humanListening": "PENDIENTE",
+    "humanListening": "EJECUTADA_SIN_REPRODUCCION_AUDIBLE",
     "fullHumanKeyboardReview": "PENDIENTE"
+  },
+  "userAudioEvidence": {
+    "source": "docs/evidencias/cierre/manual-audio-report.json",
+    "provenance": "Confirmación manual del usuario en esta conversación",
+    "results": [
+      {
+        "word": "cat",
+        "audiblePlayback": false,
+        "httpStatusMeasuredInManualReview": null,
+        "observation": "No se obtuvo reproducción audible"
+      },
+      {
+        "word": "house",
+        "audiblePlayback": false,
+        "httpStatusMeasuredInManualReview": null,
+        "observation": "No se obtuvo reproducción audible"
+      },
+      {
+        "word": "street",
+        "audiblePlayback": false,
+        "httpStatusMeasuredInManualReview": null,
+        "observation": "No se obtuvo reproducción audible"
+      },
+      {
+        "word": "hello",
+        "audiblePlayback": false,
+        "httpStatusMeasuredInManualReview": null,
+        "observation": "No se obtuvo reproducción audible"
+      }
+    ]
   },
   "httpStatus": 200,
   "api": {

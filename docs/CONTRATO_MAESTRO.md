@@ -27,3 +27,7 @@ Tras integrar documentación: esperar deployment, verificar HTTP, aplicación, r
 ## Estado de aplicación
 
 Fases A–D: inspección, paquete, ejecución real del colaborador y PR #1 integrado. Fases E–G: validación repetida, límites manuales/externos documentados y presentación profesional. Fases H–J: comprobación final de deployment, ZIP y reporte se registran en dist/FINAL_DELIVERY.json. Video y entrega manual UVM requieren intervención humana.
+
+## Actualización de alcance de cierre técnico
+
+La instrucción vigente de cierre final excluye el video de esta fase técnica: permanece como entregable académico separado. Se conserva TR-22 BLOQUEADO — dependencia externa, con la lógica propia validada y sin proveedores sustitutos. El usuario confirmó cat/house/street/hello sin reproducción audible; solo hello dispone de dos HTTP 404 medidos. HTTP de las otras tres palabras no medido. La prueba auditiva fue realizada sin éxito audible, no queda descrita como no ejecutada. Ver manual-audio-report.json y VALIDACION.

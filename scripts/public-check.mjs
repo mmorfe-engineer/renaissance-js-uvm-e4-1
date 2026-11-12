@@ -12,7 +12,8 @@ const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
 const page = await context.newPage();
 const errors = []; page.on('pageerror', e => errors.push(e.message));
-const report = { date: new Date().toISOString(), sourceCommit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), url, browser: browser.version(), checks: [], failures: [], audioResources: [], screenshots: [], manual: { zoom200: 'PENDIENTE', screenReader: 'PENDIENTE', humanListening: 'PENDIENTE', fullHumanKeyboardReview: 'PENDIENTE' } };
+const manualAudioEvidence = JSON.parse(await readFile('docs/evidencias/cierre/manual-audio-report.json', 'utf8'));
+const report = { date: new Date().toISOString(), sourceCommit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), url, browser: browser.version(), checks: [], failures: [], audioResources: [], screenshots: [], manual: { zoom200: 'PENDIENTE', screenReader: 'PENDIENTE', humanListening: manualAudioEvidence.status, fullHumanKeyboardReview: 'PENDIENTE' }, userAudioEvidence: { source: 'docs/evidencias/cierre/manual-audio-report.json', provenance: manualAudioEvidence.source, results: manualAudioEvidence.results } };
 async function check(name, fn) { try { const data = await fn(); report.checks.push({ name, ...(data || {}) }); } catch (e) { report.failures.push({ name, error: e.message }); } }
 async function shot(name) { await page.screenshot({ path: `${output}/${name}.png`, fullPage: true }); report.screenshots.push(`${output}/${name}.png`); }
 const require = createRequire(import.meta.url);
