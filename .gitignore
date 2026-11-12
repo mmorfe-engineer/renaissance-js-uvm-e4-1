@@ -10,3 +10,5 @@ dist/
 .playwright/
 .codex/
 .aws/
+__pycache__/
+*.pyc

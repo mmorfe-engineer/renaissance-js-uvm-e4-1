@@ -2,7 +2,7 @@
 
 ## Alcance
 
-Aplicación estática independiente de una página, sin backend ni build. HTML5 y CSS personalizado sostienen la presentación; seis módulos ES muestran el JavaScript evaluable. Se descartó añadir un framework porque no aporta valor a un flujo de búsqueda y lectura. Node sirve para desarrollo, pruebas y empaquetado, no es necesario en producción.
+Aplicación estática independiente de una página, sin backend ni build. HTML5 y CSS personalizado sostienen la presentación; cinco módulos ES muestran el JavaScript evaluable. Se descartó añadir un framework porque no aporta valor a un flujo de búsqueda y lectura. Node sirve para desarrollo, pruebas y empaquetado, no es necesario en producción.
 
 ## Flujo explicable
 
@@ -29,7 +29,11 @@ Abortar ahorra trabajo, pero el contador `generation` también verifica qué res
 
 ## Audio
 
-Se toma la primera URL HTTPS válida de `phonetics[].audio`, incluyendo URLs relativas al protocolo convertidas a HTTPS. Se crea un elemento `<audio preload="none" hidden>` sin controles nativos. El botón accesible invoca `play()`, controla reproducción simultánea y restablece su estado al terminar. Rechazos de la promesa y eventos de error producen mensajes. Al cambiar la búsqueda se detienen los audios; no hay autoplay ni pronunciación artificial para ocultar datos ausentes.
+Se conservan todas las URLs HTTPS válidas y únicas de `phonetics[].audio`, con fonética, fuente y licencia. `entry.audio` mantiene la primera como compatibilidad; `entry.pronunciations` alimenta el selector. No se inventan acentos ni proveedores.
+
+El elemento `<audio preload="none" hidden>` no expone controles nativos. Un selector etiquetado aparece si hay alternativas. Al pulsar Escuchar se intenta la selección y luego las restantes una vez, con timeout de 8 segundos por intento. Si el navegador exige otro gesto se informa en lugar de ocultar su política. Un fallo total mantiene el reintento.
+
+La guarda `busy` y `aria-disabled` conservan foco y evitan duplicados; la generación invalida promesas tardías. Cambiar selección o búsqueda cancela y pausa el intento previo. Los estados se anuncian mediante `role=status` y se respeta el fin de reproducción. Disponibilidad HTTP, reproducción en navegador y escucha humana se verifican por separado.
 
 ## Preferencias
 
@@ -41,7 +45,7 @@ Cinco fuentes reales se incluyen como archivos TTF, con licencias, para evitar q
 
 Landmarks `header`, `main`, `footer`; enlace de salto; un H1; entradas H2 y categorías/fuentes H3; labels explícitos; botones nativos; foco visible; `role=status` breve; idioma inglés en los datos; `aria-invalid` y descripción de errores. El resultado completo no es una región live para evitar lecturas excesivas. El diseño respeta movimiento reducido y usa colores diferenciados para temas.
 
-Ancho fluido con límite de lectura y media query de 650 px. Los controles tienen al menos 44 px de altura. Texto largo y URLs permiten salto de línea. La suite preparada comprueba 320, 375, 768, 1024 y 1440 px. Su existencia no sustituye su ejecución: consultar VALIDACION.
+Ancho fluido con límite de lectura y media query de 650 px. Los controles tienen al menos 44 px de altura. Texto largo y URLs permiten salto de línea. Las suites ejecutadas comprueban 320, 375, 768, 1024 y 1440 px. Su existencia no sustituye su ejecución: consultar VALIDACION.
 
 ## Límites
 

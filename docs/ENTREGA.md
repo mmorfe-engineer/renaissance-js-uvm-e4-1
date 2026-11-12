@@ -1,61 +1,51 @@
-# Entrega y auditoría final
+# Entrega y auditoría de cierre
 
-**Estado: implementación publicada y verificada con limitaciones; entrega académica incompleta.** Pendientes sustanciales: contribución auténtica de `morfemartin`, audio real, revisiones manuales, video e identificación académica.
+**Estado: publicación técnica y contribución de ambos integrantes integradas; entrega académica aún incompleta por video, revisiones humanas y audio externo.** Los datos académicos ya están confirmados.
 
-## Publicación y autoría
+## Acceso y equipo
 
 - Repositorio: https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1.
 - Pages: https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/.
-- Rama: `main`. Origin fetch/push: `https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1.git`.
-- Propietario autenticado: `mmorfe-engineer`, ID 234090349, nombre de perfil MARTIN MORFE FLORES. Commits del propietario usan el correo de su cuenta, sin metadata del colaborador.
-- Commit inicial: `2b90387`, implementación existente, pruebas, documentación y plantillas. Publicado antes de recibir la nueva política de distribución; incluye la interfaz que ya existía. No se reescribió para aparentar otro reparto.
-- Política vinculante incorporada antes de los commits siguientes: [CONTRATO_MAESTRO](CONTRATO_MAESTRO.md).
-- `morfemartin`: acceso **write** confirmado mediante GitHub; **ningún commit ni PR suyo integrado** al comprobar el historial. No declarar cumplido el requisito de ambos autores.
-- Bloque funcional reservado: pronunciaciones alternativas con interacción accesible y revisión responsive; archivos y criterios en [COLABORACION](COLABORACION.md). Rama que debe crear desde su entorno: `feature/ui-accessibility-morfemartin`.
-- Integración pendiente mediante PR normal, conservando commits y autores; sin squash que elimine la evidencia. No se envió ningún mensaje, invitación ni PR en nombre del colaborador.
+- Rama y origin: main; https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1.git para fetch/push.
+- Martin Morfe.°., C.I. 8.263.711, mmorfe-engineer.
+- Martin Alejandro Morfe Carballo, C.I. 30.539.018, morfemartin.
+- Profesor: Anggelo Huz. Universidad Valle del Momboy. FrontEndIVIVFI2026C · Taller Front End; E-Actividad 4.1, opción #2, ponderación 15 %, cierre 14/11/2026 23:59 Venezuela.
 
-El HEAD final y su deployment se registran en `dist/FINAL_DELIVERY.json` al cerrar la verificación, fuera del ZIP para evitar una referencia circular al commit que contiene este documento. También se obtienen con `git rev-parse HEAD` y `gh run list`.
+## Historial real
 
-## Evidencia y pruebas
+El propietario publicó implementación, integración, pruebas, documentación y Pages. El colaborador aportó dos commits propios en feature/ui-accessibility-morfemartin: 258af14 y 530ed50. PR #1 integrado con merge normal c4ab9c1, sin squash ni cambio de autoría. GitHub confirmó author y committer morfemartin en ambos. [Auditoría](COLABORACION.md).
 
-- `npm test`: **18/18 aprobadas**.
-- `npm run test:browser`: **30/30 aprobadas**, Chromium 153.0.8010.12; sin excepciones JS.
-- Responsive a 320, 375, 768, 1024 y 1440 px: sin overflow y controles visibles de al menos 44 px.
-- Tres auditorías axe WCAG A/AA: sin infracciones detectadas. Teclado y preferencias aprobados. No equivale a certificación integral.
-- Búsqueda pública real `hello`: Dictionary API **HTTP 200**, **7 definiciones**, preferencias persistentes tras recarga.
-- Audio real: **HTTP 404** en Playwright; error anunciado por la interfaz. La prueba en vivo devuelve **código 1**, `failed-external-audio`. No se afirma reproducción ni escucha humana.
-- Deployment inicial **success**: https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/actions/runs/43284501043. Datos y capturas en [evidencias](evidencias/).
-- Detalle reproducible y límites: [VALIDACION](VALIDACION.md).
+Los commits documentales de cierre posteriores se identifican en el historial. HEAD final, origen remoto y deployment correspondiente se registran al finalizar en dist/FINAL_DELIVERY.json. No se inserta un hash circular del propio commit en este archivo.
 
-## Configuración de Pages
+## Evidencias actuales
 
-Pages publica nativamente desde `main`, carpeta `/`, con HTTPS. `.nojekyll` conserva el sitio estático. El token CLI carece de permiso `workflow`, y el primer intento de push con workflows fue rechazado sin publicar esa versión. Las plantillas se conservaron en `scripts/workflows/`; no se afirma que estén activas ni que exista CI de calidad automática remota. El workflow nativo de Pages sí proporciona evidencia de build/deploy. Las pruebas de calidad se ejecutaron localmente.
+- 20 unitarias, 35 comprobaciones browser y 8 comprobaciones públicas aprobadas. [Validación](VALIDACION.md) y [fuentes de datos](evidencias/cierre/).
+- Responsive: cinco viewports 320–1440 px y controles de al menos 44 px.
+- Axe: sin infracciones detectadas en escenarios ejecutados; no certificación WCAG.
+- Sitio público: HTTP 200, hello real con siete definiciones y preferencias persistentes.
+- Audio: ambas URLs reales HTTP 404. Fallback y mensaje de fallo total funcionan; no reproducción ni escucha acreditadas. live-check conserva código 1.
+- Capturas reales de Pages, hero y gráficos versionados en docs/assets. README y matriz reflejan los límites reales.
+- Cumplimiento: fuente única [CUMPLIMIENTO_PLIEGO](CUMPLIMIENTO_PLIEGO.md); códigos TR internos, no oficiales. Gráficos derivados automáticamente.
 
-## Artefactos finales
+## Deployment
 
-- `dist/renaissance-lexicon-e4-1.zip`: fuentes, documentación, evidencias y pruebas; sin Git, dependencias ni configuración de sesión.
-- `dist/SHA256SUMS.json`: SHA-256 de cada archivo incluido.
-- `dist/renaissance-lexicon-e4-1.zip.sha256`: SHA-256 del ZIP final.
-- `dist/FINAL_DELIVERY.json`: HEAD, deployment y comprobación final de correspondencia ZIP/Git/recursos publicados.
-- `dist/site/`: copia estática de index, CSS, JavaScript y assets, generada con `node scripts/prepare-site.mjs`.
+Pages nativo desde main, carpeta /, con HTTPS y .nojekyll. Las plantillas de scripts/workflows no son CI personalizada activa. El deployment de código post-merge consta en [deployment-code.json](evidencias/cierre/deployment-code.json). Después del commit documental final se espera su deployment y se repite la visita pública y comparación de recursos; ese resultado queda en el reporte final externo.
 
-El ZIP debe regenerarse tras cada cambio fuente/documental. La comprobación final compara el contenido descomprimido con los archivos versionados del HEAD publicado y verifica los bytes de todos los recursos del sitio por HTTPS. El hash del ZIP se comunica fuera de su propio contenido para evitar circularidad.
+## Artefactos de entrega
 
-## Checklist
+- dist/renaissance-lexicon-e4-1.zip: fuentes, documentación, capturas, evidencias y tests versionados.
+- dist/SHA256SUMS.json: hashes de cada archivo incluido.
+- dist/renaissance-lexicon-e4-1.zip.sha256: hash del ZIP.
+- dist/FINAL_DELIVERY.json: rama/HEAD, deployment, commits/autores, pruebas, recursos públicos, links y correspondencia ZIP/Git.
+- dist/site/: copia estática del runtime, preparada con node scripts/prepare-site.mjs.
 
-- [x] Implementación, lógica, preferencias y documentación disponibles.
-- [x] Git habilitado, origin canónico e identidad del propietario verificados.
-- [x] Código principal publicado sin simular autoría del colaborador.
-- [x] Pages habilitado, deployment inicial exitoso y sitio visitado con navegador real.
-- [x] 18 pruebas de lógica y 30 comprobaciones de navegador aprobadas.
-- [x] Búsqueda y preferencias verificadas en la URL pública.
-- [x] Política de distribución incorporada y bloque funcional reservado al colaborador.
-- [ ] Pronunciación remota reproducida y escuchada satisfactoriamente.
-- [ ] Trabajo funcional, commits auténticos y PR de `morfemartin` integrados y autorías verificadas en GitHub.
-- [ ] Revisión manual completa: zoom 200 %, lector de pantalla, escucha y escenarios UI del colaborador.
-- [ ] Video real de ambos integrantes de máximo 10 minutos y URL revisados; el guion 8:45 no es una grabación.
-- [ ] Identificadores y nombres académicos formales de ambos confirmados para la entrega.
-- [ ] Resto del contrato original, si existe tras la sección 19 recibida parcialmente, reconciliado.
-- [ ] Entrega formal realizada en la plataforma académica.
+Se regeneran únicamente después de completar los cambios. El ZIP anterior al merge queda obsoleto como entrega actual; los reportes históricos versionados se conservan como evidencia de su momento. El paquete MORFEMARTIN_CONTRIBUTION_PACK es un artefacto de preparación, no el ZIP académico final.
 
-Estos pendientes requieren intervención humana o trabajo desde el entorno auténtico del colaborador. La publicación técnica no cierra por sí sola la entrega académica.
+## Pendientes humanos y externos
+
+- **Video real de ambos integrantes**, máximo 10 minutos, funcionamiento y explicación de código; URL y duración aún pendientes. [Guion actualizado](GUIA_VIDEO.md).
+- **Revisión humana completa** de teclado/foco, zoom real 200 %, lector de pantalla y escucha. Las pruebas automatizadas aprobadas no los sustituyen.
+- **Disponibilidad/reproducción de audio externo**: registrar un recurso realmente operativo cuando el proveedor lo permita; no fabricar URLs ni ocultar el bloqueo actual.
+- **Entrega manual en la plataforma UVM** y revisión de acceso al video por el profesor.
+
+Ningún dato académico solicitado permanece pendiente. El requisito de commits de ambos integrantes sí está acreditado. El cierre académico completo requiere resolver los puntos anteriores; la publicación técnica y el ZIP no los reemplazan.

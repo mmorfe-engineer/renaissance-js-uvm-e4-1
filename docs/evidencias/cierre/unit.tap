@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: valida espacios, mayúsculas, apóstrofos y guiones sin permitir símbolos arbitrarios
+ok 1 - valida espacios, mayúsculas, apóstrofos y guiones sin permitir símbolos arbitrarios
+  ---
+  duration_ms: 1.868332
+  type: 'test'
+  ...
+# Subtest: debounce ejecuta una sola consulta con el último valor, después de la pausa
+ok 2 - debounce ejecuta una sola consulta con el último valor, después de la pausa
+  ---
+  duration_ms: 86.592457
+  type: 'test'
+  ...
+# Subtest: cancelar debounce evita consultas al enviar o limpiar
+ok 3 - cancelar debounce evita consultas al enviar o limpiar
+  ---
+  duration_ms: 41.149705
+  type: 'test'
+  ...
+# Subtest: URLs de audio y fuentes excluyen protocolos inseguros y entradas inválidas
+ok 4 - URLs de audio y fuentes excluyen protocolos inseguros y entradas inválidas
+  ---
+  duration_ms: 0.725211
+  type: 'test'
+  ...
+# Subtest: normaliza múltiples entradas, fonéticas, verbos, ejemplos y sinónimos sin duplicar
+ok 5 - normaliza múltiples entradas, fonéticas, verbos, ejemplos y sinónimos sin duplicar
+  ---
+  duration_ms: 1.366213
+  type: 'test'
+  ...
+# Subtest: tolera campos ausentes y formas inesperadas sin romper el normalizador
+ok 6 - tolera campos ausentes y formas inesperadas sin romper el normalizador
+  ---
+  duration_ms: 0.657613
+  type: 'test'
+  ...
+# Subtest: fetch codifica la palabra, propaga signal y procesa JSON
+ok 7 - fetch codifica la palabra, propaga signal y procesa JSON
+  ---
+  duration_ms: 48.435319
+  type: 'test'
+  ...
+# Subtest: HTTP 404 produce un error comprensible de tipo not-found
+ok 8 - HTTP 404 produce un error comprensible de tipo not-found
+  ---
+  duration_ms: 1.929608
+  type: 'test'
+  ...
+# Subtest: HTTP 429 produce un error comprensible de tipo api
+ok 9 - HTTP 429 produce un error comprensible de tipo api
+  ---
+  duration_ms: 0.257897
+  type: 'test'
+  ...
+# Subtest: HTTP 500 produce un error comprensible de tipo api
+ok 10 - HTTP 500 produce un error comprensible de tipo api
+  ---
+  duration_ms: 0.26963
+  type: 'test'
+  ...
+# Subtest: distingue red desconectada de solicitud cancelada
+ok 11 - distingue red desconectada de solicitud cancelada
+  ---
+  duration_ms: 0.409565
+  type: 'test'
+  ...
+# Subtest: rechaza JSON ilegible y respuestas sin entradas válidas
+ok 12 - rechaza JSON ilegible y respuestas sin entradas válidas
+  ---
+  duration_ms: 0.610884
+  type: 'test'
+  ...
+# Subtest: tema inicial sigue al sistema y actualiza cambios del SO
+ok 13 - tema inicial sigue al sistema y actualiza cambios del SO
+  ---
+  duration_ms: 2.477454
+  type: 'test'
+  ...
+# Subtest: elección manual tiene prioridad y persiste tema y fuente
+ok 14 - elección manual tiene prioridad y persiste tema y fuente
+  ---
+  duration_ms: 0.433119
+  type: 'test'
+  ...
+# Subtest: restaura preferencias permitidas y descarta JSON inválido o valores desconocidos
+ok 15 - restaura preferencias permitidas y descarta JSON inválido o valores desconocidos
+  ---
+  duration_ms: 0.332689
+  type: 'test'
+  ...
+# Subtest: almacenamiento bloqueado mantiene cambios funcionales durante la sesión
+ok 16 - almacenamiento bloqueado mantiene cambios funcionales durante la sesión
+  ---
+  duration_ms: 0.303735
+  type: 'test'
+  ...
+# Subtest: preferencias corruptas usan valores por defecto: {broken
+ok 17 - preferencias corruptas usan valores por defecto: {broken
+  ---
+  duration_ms: 0.292503
+  type: 'test'
+  ...
+# Subtest: preferencias corruptas usan valores por defecto: {"theme":"unknown","font":"unknown"}
+ok 18 - preferencias corruptas usan valores por defecto: {"theme":"unknown","font":"unknown"}
+  ---
+  duration_ms: 0.261174
+  type: 'test'
+  ...
+# Subtest: conserva pronunciaciones HTTPS únicas con fuente y licencia, sin URLs inseguras
+ok 19 - conserva pronunciaciones HTTPS únicas con fuente y licencia, sin URLs inseguras
+  ---
+  duration_ms: 0.182334
+  type: 'test'
+  ...
+# Subtest: sin pronunciaciones válidas conserva una colección vacía
+ok 20 - sin pronunciaciones válidas conserva una colección vacía
+  ---
+  duration_ms: 0.165132
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 265.962372

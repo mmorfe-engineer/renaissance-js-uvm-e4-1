@@ -1,61 +1,31 @@
-# Colaboración auténtica
+# Colaboración auténtica e integración
 
-Propietario: `mmorfe-engineer`. Segundo integrante: `morfemartin`. No crear repositorios alternativos ni duplicar la invitación existente.
+El equipo está formado por **Martin Morfe.°.** (`mmorfe-engineer`, C.I. 8.263.711) y **Martin Alejandro Morfe Carballo** (`morfemartin`, C.I. 30.539.018). Los nombres académicos fueron suministrados por el usuario, sin deducirlos de perfiles.
 
-## Acceso e historial verificados · 2026-11-12
+## Reparto funcional
 
-La CLI autenticada es `mmorfe-engineer` (ID 234090349). GitHub devuelve `permission: write`, `role_name: write` y `push: true` para `morfemartin` (ID 223161775). No se duplicaron invitaciones. La lista de contributors contiene únicamente a `mmorfe-engineer`, con el commit inicial `2b90387`; esto acredita acceso del colaborador, **no su contribución**.
+| Integrante | Trabajo visible |
+|---|---|
+| mmorfe-engineer | Implementación principal, núcleo JS, API, debounce, validación, DOM, preferencias iniciales, integración, tests, documentación y Pages |
+| morfemartin | Pronunciaciones alternativas, selección/fallback/reintento, cancelación de audio, foco, mensajes accesibles, CSS responsive y ampliación de pruebas/revisión |
 
-El commit inicial se publicó antes de recibir la política de distribución, y contiene también la interfaz implementada previamente. No se reescribirá la historia para fingir un reparto anterior. La [política vinculante](CONTRATO_MAESTRO.md) queda incorporada antes del siguiente commit. La identidad Git local del propietario se confirmó con nombre y correo de su cuenta; no se configuró ninguna identidad del colaborador.
+El commit inicial del propietario contenía la interfaz existente. El bloque posterior del colaborador aporta comportamiento nuevo y verificable; no es una reatribución retroactiva.
 
-## Bloque funcional reservado: pronunciación resiliente y accesible
+## PR y commits preservados
 
-**Responsable exclusivo de la implementación pendiente: `morfemartin`.** Rama a crear desde su propio entorno: `feature/ui-accessibility-morfemartin`.
+[PR #1](https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/pull/1), rama `feature/ui-accessibility-morfemartin` hacia `main`, integrado mediante merge normal en `c4ab9c15763b18fdc07dfc3c162cb959938de73b`.
 
-Hallazgo reproducible: la API de `hello` devuelve definiciones HTTP 200 y URLs de audio, pero el primer recurso `hello-au.mp3` devolvió HTTP 404 al cliente Playwright y 403 a curl. El control anuncia el fallo correctamente, pero solo conserva una pronunciación. No se declara audio real aprobado.
+- `258af14457e74b76fd4145665550d890a2e8ab91`: Add accessible pronunciation alternatives and bounded audio fallback.
+- `530ed50bcd11d3e79ebe8a045c3fe52705027351`: Verify pronunciation resources and document interface accessibility review.
 
-Archivos: `js/api.js` (conservar pronunciaciones HTTPS alternativas con sus datos), `js/ui.js` (selección o reintento de alternativas iniciado por el usuario, estado de reproducción accesible), `css/styles.css` (layout móvil, foco y estados de ese control), `tests/unit.test.js`, `scripts/browser-check.mjs` y `docs/REVISION_MORFEMARTIN.md`.
+GitHub devolvió **author.login = morfemartin y committer.login = morfemartin** en ambos objetos de commit. Ambos son ancestros del merge. No se hizo squash, cherry-pick ni reescritura de autores. La autenticación de integración fue `mmorfe-engineer`.
 
-Objetivo: ofrecer alternativas reales suministradas por Dictionary API, sin fabricar URLs ni ocultar fallos, con interacción de teclado clara. Si todos los recursos fallan, informar el problema y permitir reintentar sin bloquear la consulta. No introducir autoplay ni proveedores inventados.
+Evidencia: [PR integrado](evidencias/cierre/pr-1.json). Los objetos remotos se vuelven a comprobar al generar el informe final. El permiso write por sí solo no fue utilizado como prueba de contribución.
 
-Criterios de terminado:
+## Evidencias del colaborador
 
-- Cambio funcional identificable en el manejo de pronunciaciones y su interfaz, con validación de URLs y pruebas de primera alternativa fallida, alternativa disponible y fallo total.
-- Botón/selector accesible, foco visible, estado anunciado, controles de al menos 44 px y sin overflow en 320, 375, 768, 1024 y 1440 px; revisar temas y cinco fuentes.
-- Ejecutar pruebas de lógica y navegador; verificar audio real y registrar honestamente restricciones externas. Revisar zoom 200 %, teclado y lector de pantalla; documentar herramientas y resultados.
-- Crear commits propios, push y PR real desde `morfemartin`. Integrar con merge normal preservando sus commits; comparar autorías antes y después. No squash ni reatribución.
+[Revisión original](REVISION_MORFEMARTIN.md), [browser-report](evidencias/morfemartin/browser-report.json) y [live-report](evidencias/morfemartin/live-report.json) se conservan sin alterar. Registran pruebas de su rama y limitaciones de Codespaces: API HTTP 403 y timeout de espera.
 
-La implementación de este bloque queda pendiente: el propietario solo documentó el hallazgo y mejoró el diagnóstico de la prueba en vivo. No realizó el cambio de interfaz reservado.
+## Revalidación posterior
 
-## Tarea real para morfemartin
-
-Rama: **`feature/ui-accessibility-morfemartin`**, a crear por el colaborador desde su entorno real. La revisión siguiente complementa el bloque funcional reservado.
-
-Objetivo: ejecutar y completar la validación responsive y de accesibilidad; reproducir problemas reales, corregirlos cuando corresponda y aportar evidencia propia.
-
-1. Desde su sesión autenticada, clonar el repositorio canónico cuando tenga el código, actualizar `main` y crear la rama indicada.
-2. Ejecutar `npm test`, instalar dependencias de prueba y ejecutar `npm run test:browser` y `node scripts/live-check.mjs`.
-3. Revisar a 320, 375, 768, 1024 y 1440 px, ambos temas, cinco fuentes, zoom 200 %, navegación completa con teclado y audio. Escuchar realmente al menos una pronunciación.
-4. Revisar con lector de pantalla la etiqueta de búsqueda, el anuncio de carga, el resultado, la validación y el botón de audio. Registrar herramienta, versión, fecha y resultado sin afirmar pruebas no realizadas.
-5. Si hay un fallo, corregir el código y comprobar el escenario; además del cambio funcional reservado, aportar la revisión reproducible y sus evidencias en `docs/REVISION_MORFEMARTIN.md`.
-6. Crear commits propios y abrir un pull request hacia `main`, con resultados y capturas, desde su cuenta real. No aceptar un commit vacío, un cambio cosmético inventado o una atribución escrita por otro como evidencia de participación.
-7. Explicar en el video su revisión y el JavaScript de preferencias/audio o las correcciones realizadas. La participación debe ser real y entendida.
-
-```sh
-git clone https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1.git
-cd renaissance-js-uvm-e4-1
-git switch main
-git pull --ff-only origin main
-git switch -c feature/ui-accessibility-morfemartin
-npm test
-npm install --ignore-scripts
-npx playwright install --with-deps chromium
-npm run test:browser
-node scripts/live-check.mjs
-```
-
-La identidad Git debe corresponder a la persona que ejecuta el trabajo y a un correo verificado en su propia cuenta. Cada integrante verifica su configuración; este proyecto no la sustituye automáticamente.
-
-## Criterio de integración
-
-Revisar diff y resultados, resolver fallos, conservar el autor real y fusionar solo después de confirmar que el PR cumple la tarea. La entrega requiere evidencia verificable de ambos integrantes. Una rama o este documento por sí solos no acreditan participación.
+Las suites se ejecutaron de nuevo después del merge. Los resultados vigentes están en [VALIDACION](VALIDACION.md) y `docs/evidencias/cierre/`. Las comprobaciones manuales pendientes en la revisión del colaborador no se convierten en PASS por inferencia. El requisito de historial de ambos integrantes está acreditado; el audio externo y la revisión humana completa tienen estados independientes.

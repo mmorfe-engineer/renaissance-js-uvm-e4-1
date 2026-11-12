@@ -1,26 +1,32 @@
-# Guion de explicación · objetivo 8:45
+# Video explicativo · objetivo 8:45, máximo 10:00
 
-Grabar una demostración real con ambos integrantes. Esta guía no es un video terminado. Mostrar código legible y aplicación; ensayar una vez con cronómetro para quedar por debajo de 10 minutos.
+**Grabación pendiente.** El guion no acredita video entregado. Ambos integrantes explican el trabajo real visible en Git y en el PR #1.
 
-| Tiempo | Contenido | Evidencia en pantalla |
+| Tiempo | Responsable | Código y demostración |
 |---|---|---|
-| 0:00–0:35 | Presentación de ambos, curso y opción diccionario | Nombres académicos reales, Renaissance Lexicon y repositorio canónico |
-| 0:35–1:20 | Aplicación: buscar `hello`, leer verbo/ejemplo y escuchar | Búsqueda real y botón personalizado; mencionar datos opcionales |
-| 1:20–2:20 | Estructura HTML/CSS y módulos | Semántica, labels, enlaces, CSS personalizado; sin framework |
-| 2:20–3:25 | Debounce y validación | `utils.js` y eventos de `app.js`; DevTools Network: escribir y esperar 450 ms; Enter evita duplicado |
-| 3:25–4:40 | API y asincronía | `fetch`, `async/await`, `response.ok`, `AbortController`, contador de generación y timeout |
-| 4:40–5:40 | Arrays/objetos y DOM | `normalizeEntries`, map/filter/flatMap, `createElement`, `textContent`, listas y sinónimos |
-| 5:40–6:35 | Audio | Elemento audio, `play()` y promesa, eventos ended/error; caso sin audio |
-| 6:35–7:25 | Preferencias y accesibilidad | Sistema/claro/oscuro, cinco fuentes, recarga y localStorage; foco y teclado |
-| 7:25–8:05 | Errores y responsive | Palabra inexistente; Offline de DevTools y recuperación; móvil/desktop |
-| 8:05–8:45 | Contribuciones y pruebas | Commits reales de ambos, PR, informes, URL pública y límites honestos |
+| 0:00–0:35 | Ambos | Martin Morfe.°., C.I. 8.263.711; Martin Alejandro Morfe Carballo, C.I. 30.539.018; UVM, Taller Front End, profesor Anggelo Huz y opción #2 |
+| 0:35–1:20 | Martin Morfe.°. | Pages: buscar hello, categorías, definiciones, ejemplo, sinónimo, fonética y fuentes reales |
+| 1:20–2:05 | Martin Morfe.°. | Cinco módulos ES, HTML semántico y CSS propio; mostrar imports y responsabilidades |
+| 2:05–3:10 | Martin Morfe.°. | app.js y utils.js: eventos, 450 ms de debounce, validación, Enter y cancelación |
+| 3:10–4:20 | Martin Morfe.°. | api.js: fetch, async/await, HTTP/JSON, arrays/objetos; AbortController y generación en app.js |
+| 4:20–5:05 | Martin Morfe.°. | ui.js: DOM con createElement/textContent, listas y estados; preferences.js: storage y matchMedia |
+| 5:05–6:40 | Martin Alejandro Morfe Carballo | Sus cambios de api.js/ui.js: pronunciaciones únicas, selector, play(), fallback, timeout, cancelación, aria-disabled y mensajes. Mostrar PR y código |
+| 6:40–7:35 | Martin Alejandro Morfe Carballo | Su CSS responsive, foco, teclado y pruebas agregadas; tema claro/oscuro/sistema y cinco fuentes en la interfaz |
+| 7:35–8:15 | Ambos | Errores reales, suites y evidencia. Diferenciar audio simulado, descarga real, reproducción y escucha |
+| 8:15–8:45 | Ambos | Historial con ambos autores, PR #1 integrado sin squash, cumplimiento y URL pública |
 
-Distribuir la explicación según lo que cada integrante haya desarrollado o revisado realmente. El segundo integrante explica su tarea y las correcciones efectivas, no se le atribuye código por conveniencia.
+## Preparación
 
-## Preparación de la grabación
+Ensayar con cronómetro, dar prioridad al código legible y no consumir tiempo leyendo toda la documentación. Mostrar las funciones y el diff que cada uno comprende y trabajó realmente. Las preferencias iniciales pertenecen a la implementación principal; el segundo integrante explica la compatibilidad y revisión de su control, sin atribuirse retrospectivamente todo el sistema.
 
-- Confirmar API y audio justo antes. Si el proveedor falla, mostrar el error real y reintentar; no reemplazarlo por una respuesta ficticia.
-- Grabar navegador y editor, con voz clara y cursor visible; usar zoom suficiente para leer JS. No exponer credenciales, tokens, correos privados ni paneles ajenos al proyecto.
-- Demostrar una sola vez cada flujo; evitar consumir minutos leyendo CSS o documentación.
-- Explicar constantes, variables, funciones, cierre del debounce, módulos, eventos, arrays/objetos, asincronía, DOM y estado con ejemplos del código.
-- Validar duración del archivo, audio audible y enlace accesible al profesor. Registrar URL y duración real en ENTREGA antes de enviar.
+Confirmar API y audio antes de grabar. Si ambos recursos siguen fallando, demostrar el mensaje verdadero y el reintento; no fabricar una pronunciación ni afirmar escucha. Registrar cualquier revisión manual efectivamente realizada con herramienta, fecha y resultado en VALIDACION o un anexo.
+
+Grabar navegador/editor con voz y cursor visibles. Evitar credenciales y paneles ajenos. Revisar el archivo final: ambos integrantes, explicación del funcionamiento y código, énfasis JS, audio audible y duración máxima 10 minutos.
+
+## Datos del video final
+
+- URL: **PENDIENTE**.
+- Duración real: **PENDIENTE**.
+- Revisión de acceso por el profesor: **PENDIENTE**.
+
+Agregar esos datos solo cuando exista la grabación. Después reconciliar TR-10 a TR-14 y regenerar gráficos/ZIP si corresponde.

@@ -1,37 +1,14 @@
-# Contexto vinculante de ejecución
+# Contexto vigente de ejecución
 
-- Workspace: `/home/bitcoinpapa/projects/renaissance-js-uvm-e4-1`.
-- Repositorio existente: `mmorfe-engineer/renaissance-js-uvm-e4-1`.
-- Único origin autorizado: `https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1.git`.
-- Rama principal: `main`. Visibilidad: pública.
-- Propietario: `mmorfe-engineer`. Segundo integrante: `morfemartin`.
-- No crear otro repositorio, cambiar propietario ni duplicar invitaciones.
-- Verificar origin e inspeccionar el historial remoto antes de cada push; no sobrescribir trabajo remoto.
-- No fabricar contribuciones ni cambiar la identidad Git para atribuir commits a otro integrante.
-- Preparar una tarea real para morfemartin cuando se recuperen los requisitos del contrato maestro; sus commits deben proceder de su propia cuenta.
+Workspace exclusivo: /home/bitcoinpapa/projects/renaissance-js-uvm-e4-1.
+Repositorio y único origin: https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1.git. Rama main, público. Pages: https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/.
 
-## Evidencia de esta sesión — 2026-11-12
+Contrato vigente: docs/CONTRATO_MAESTRO.md. Trazabilidad canónica: docs/CUMPLIMIENTO_PLIEGO.md. No reconstruir, reescribir historial ni simular autoría.
 
-- La API de GitHub confirmó propietario, nombre, visibilidad pública y rama predeterminada main.
-- La consulta de contenidos devolvió: `This repository is empty.`
-- El workspace no contiene código ni el contrato maestro original.
-- `.git` es un directorio vacío montado en solo lectura. `git init -b main` falló con `Read-only file system`; no se pudo configurar origin.
-- El CLI no pudo conectar con api.github.com. El conector GitHub sí permitió consultar el repositorio.
-- La consulta de permisos de morfemartin mediante el conector devolvió 403 `Resource not accessible by integration`. No permite determinar si la invitación fue aceptada.
-- No se realizaron pushes, invitaciones, commits ni despliegues.
+PR #1 integrado con merge normal c4ab9c15763b18fdc07dfc3c162cb959938de73b, conservando 258af14457e74b76fd4145665550d890a2e8ab91 y 530ed50bcd11d3e79ebe8a045c3fe52705027351 de morfemartin. El paquete de contribución ya se ejecutó: no generar otro.
 
-## Actualización posterior
+Datos académicos confirmados por el usuario: Martin Morfe.°., C.I. 8.263.711, mmorfe-engineer; Martin Alejandro Morfe Carballo, C.I. 30.539.018, morfemartin; profesor Anggelo Huz. UVM, FrontEndIVIVFI2026C · Taller Front End, E-Actividad 4.1, opción #2, 15 %, cierre 14/11/2026 23:59 Venezuela.
 
-El usuario proporcionó el contrato maestro de Renaissance Lexicon, opción 2 (Dictionary API), hasta parte de la sección 19. Se implementaron HTML/CSS/JS vanilla, pruebas y documentación dentro de este workspace. Consultar `docs/ENTREGA.md` para pendientes y `docs/VALIDACION.md` para evidencia.
+Verificación post-merge: evidencia en docs/evidencias/cierre; unitarias, browser, Pages y API real. Audio externo HTTP 404; reproducción no acreditada. Revisión manual de teclado completo, zoom 200 %, lector y escucha pendientes. No confundirlos con pruebas automatizadas aprobadas. Video real y entrega UVM pendientes.
 
-La cuenta del conector GitHub se identificó como `morfemartin`; la lectura del repositorio reportó `push: true`. Se solicitó conectar la cuenta propietaria para publicar la implementación principal y conservar separada la contribución independiente del segundo integrante. No se alteró la identidad Git ni se generaron commits bajo la cuenta del colaborador.
-
-El usuario confirmó después que la conexión principal ya es `mmorfe-engineer` y autorizó continuar publicando. Al verificar, las herramientas GitHub devolvieron `Unknown tool` aunque el gestor de plugins reportó GitHub instalado y habilitado. No fue posible verificar la nueva identidad ni escribir en el remoto; no se solicitó cambiar otra vez de cuenta.
-
-Continúa pendiente habilitar la escritura de `.git` mediante la configuración del entorno. El servidor local y Chromium también fueron bloqueados por las restricciones del entorno. No declarar la entrega completada sin resolver las verificaciones, contribuciones, publicación y video.
-
-## Estado vigente tras reanudación · 2026-11-12
-
-Los bloqueos anteriores son históricos. Git quedó inicializado en `main`, origin canónico confirmado y commit inicial `2b90387` publicado desde `mmorfe-engineer`. Pages funciona mediante despliegue nativo desde main; las plantillas se conservan en scripts/workflows porque el token CLI carece de scope workflow. Chromium ya ejecutó 30 comprobaciones y las 18 pruebas de lógica pasaron. La búsqueda pública funciona; el audio externo devolvió 404/403, sin afirmar reproducción exitosa.
-
-La política añadida por el usuario después del primer push es vinculante: docs/CONTRATO_MAESTRO.md. El bloque técnico de pronunciación resiliente y accesible queda reservado a morfemartin. Su acceso write está verificado; sus commits siguen pendientes. No se permite simularlos ni reescribir el historial inicial para aparentar reparto. Ver ENTREGA y COLABORACION para el estado final y tareas humanas.
+El HEAD final y deployment se consultan en dist/FINAL_DELIVERY.json después del cierre, evitando circularidad documental. Los ZIP previos y contribution packs no son la entrega final tras nuevos cambios.

@@ -1,0 +1,480 @@
+{
+  "date": "2026-11-12T21:32:24.803199+00:00",
+  "documents": 11,
+  "local": [
+    {
+      "source": "README.md",
+      "target": "docs/CUMPLIMIENTO_PLIEGO.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/VALIDACION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/public-report.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/public-report.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/GUIA_VIDEO.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/app.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/api.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/ui.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/preferences.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/utils.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/app.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/app.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/utils.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/app.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/preferences.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/ui.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/api.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/api.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/utils.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/app.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/ui.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "js/preferences.js",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/unit-report.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/unit.tap",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/browser-report.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/public-report.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/live-report.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/REVISION_MORFEMARTIN.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/VALIDACION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/CUMPLIMIENTO_PLIEGO.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/COLABORACION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidencias/cierre/pr-1.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/CUMPLIMIENTO_PLIEGO.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/ARQUITECTURA.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/VALIDACION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/COLABORACION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/REVISION_MORFEMARTIN.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/GUIA_VIDEO.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/ENTREGA.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/CONTRATO_MAESTRO.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "REFERENCIAS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/ENTREGA.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/hero.svg",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/screenshots/desktop-claro.png",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/screenshots/desktop-oscuro.png",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/screenshots/movil.png",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/screenshots/resultado-real.png",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/screenshots/pronunciaciones.png",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/verification-summary.svg",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/academic-compliance.svg",
+      "exists": true
+    },
+    {
+      "source": "docs/COLABORACION.md",
+      "target": "evidencias/cierre/pr-1.json",
+      "exists": true
+    },
+    {
+      "source": "docs/COLABORACION.md",
+      "target": "REVISION_MORFEMARTIN.md",
+      "exists": true
+    },
+    {
+      "source": "docs/COLABORACION.md",
+      "target": "evidencias/morfemartin/browser-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/COLABORACION.md",
+      "target": "evidencias/morfemartin/live-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/COLABORACION.md",
+      "target": "VALIDACION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/CUMPLIMIENTO_PLIEGO.md",
+      "target": "evidencias/cierre/unit-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/CUMPLIMIENTO_PLIEGO.md",
+      "target": "evidencias/cierre/browser-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/CUMPLIMIENTO_PLIEGO.md",
+      "target": "evidencias/cierre/public-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/ENTREGA.md",
+      "target": "COLABORACION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/ENTREGA.md",
+      "target": "VALIDACION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/ENTREGA.md",
+      "target": "evidencias/cierre/",
+      "exists": true
+    },
+    {
+      "source": "docs/ENTREGA.md",
+      "target": "CUMPLIMIENTO_PLIEGO.md",
+      "exists": true
+    },
+    {
+      "source": "docs/ENTREGA.md",
+      "target": "evidencias/cierre/deployment-code.json",
+      "exists": true
+    },
+    {
+      "source": "docs/ENTREGA.md",
+      "target": "GUIA_VIDEO.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RUBRICA.md",
+      "target": "CUMPLIMIENTO_PLIEGO.md",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/unit-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/unit.tap",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/browser-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/public-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/live-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "REVISION_MORFEMARTIN.md",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "assets/screenshots/desktop-claro.png",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "assets/screenshots/desktop-oscuro.png",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "assets/screenshots/movil.png",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "assets/screenshots/resultado-real.png",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "assets/screenshots/pronunciaciones.png",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/diagrams-report.json",
+      "exists": true
+    },
+    {
+      "source": "docs/VALIDACION.md",
+      "target": "evidencias/cierre/links-report.json",
+      "exists": true
+    }
+  ],
+  "external": [
+    {
+      "url": "https://api.dictionaryapi.dev/api/v2/entries/en/hello",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://dictionaryapi.dev/",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://github.com/mmorfe-engineer",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/commit/258af14457e74b76fd4145665550d890a2e8ab91",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/commit/530ed50bcd11d3e79ebe8a045c3fe52705027351",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/commits/main/",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/pull/1",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://github.com/morfemartin",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://img.shields.io/badge/CSS3-personalizado-244e70?style=flat-square",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://img.shields.io/badge/Dictionary%20API-datos%20en%20vivo-244e70?style=flat-square",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://img.shields.io/badge/HTML5-sem%C3%A1ntico-244e70?style=flat-square",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://img.shields.io/badge/Hosting-GitHub%20Pages-244e70?style=flat-square",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://img.shields.io/badge/JavaScript-vanilla-244e70?style=flat-square",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    },
+    {
+      "url": "https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/",
+      "httpStatus": 200,
+      "status": "VERIFICADO"
+    }
+  ],
+  "failures": [],
+  "blocked": []
+}

@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-12T21:21:23.937Z",
+  "sourceCommit": "c4ab9c15763b18fdc07dfc3c162cb959938de73b",
+  "url": "https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/",
+  "browser": "153.0.8010.12",
+  "checks": [
+    {
+      "name": "Axe: inicio público",
+      "violations": 0
+    },
+    {
+      "name": "Teclado automatizado: enlace de salto y foco principal"
+    },
+    {
+      "name": "Búsqueda pública real y definiciones"
+    },
+    {
+      "name": "Axe: resultado público oscuro",
+      "violations": 0
+    },
+    {
+      "name": "Axe: resultado público móvil",
+      "violations": 0
+    },
+    {
+      "name": "Responsive público: cinco viewports",
+      "widths": [
+        320,
+        375,
+        768,
+        1024,
+        1440
+      ]
+    },
+    {
+      "name": "Preferencias públicas: cinco fuentes, tres temas y persistencia"
+    },
+    {
+      "name": "Sin excepciones JavaScript en sitio público"
+    }
+  ],
+  "failures": [],
+  "audioResources": [
+    {
+      "url": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3",
+      "httpStatus": 404,
+      "contentType": "text/html",
+      "bytes": 58296
+    },
+    {
+      "url": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3",
+      "httpStatus": 404,
+      "contentType": "text/html",
+      "bytes": 58296
+    }
+  ],
+  "screenshots": [
+    "docs/assets/screenshots/resultado-real.png",
+    "docs/assets/screenshots/pronunciaciones.png",
+    "docs/assets/screenshots/desktop-claro.png",
+    "docs/assets/screenshots/desktop-oscuro.png",
+    "docs/assets/screenshots/movil.png"
+  ],
+  "manual": {
+    "zoom200": "PENDIENTE",
+    "screenReader": "PENDIENTE",
+    "humanListening": "PENDIENTE",
+    "fullHumanKeyboardReview": "PENDIENTE"
+  },
+  "httpStatus": 200,
+  "api": {
+    "httpStatus": 200,
+    "status": "VERIFICADO",
+    "definitions": 7
+  },
+  "playback": {
+    "url": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3",
+    "readyState": 0,
+    "paused": true,
+    "ended": false,
+    "message": "No se pudo reproducir el audio. Se probaron todas las alternativas. Puedes volver a intentarlo.",
+    "status": "BLOQUEADO"
+  },
+  "errors": [],
+  "status": "partial-external-service"
+}

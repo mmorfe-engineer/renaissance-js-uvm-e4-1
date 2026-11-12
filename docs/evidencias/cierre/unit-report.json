@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-12T21:23:08.874Z",
+  "sourceCommit": "c4ab9c15763b18fdc07dfc3c162cb959938de73b",
+  "command": "node --test --test-reporter=tap tests/unit.test.js",
+  "tests": 20,
+  "passed": 20,
+  "failed": 0,
+  "exitCode": 0,
+  "sourceSHA256": {
+    "js/api.js": "c6e4e392aea2db0ebd2861087fac4e258a9188bf1a87b003007c2463d201c9b1",
+    "js/app.js": "b26d9d81af219c7d0327dbccc01f082de44e55aeab17317ca1595a58f22abecb",
+    "js/ui.js": "4a75be5eab992445be83b5d2eece19917ba1d46b2c5f7a37f4cb072e67a3d66c",
+    "js/utils.js": "5bb4da1cf6b7b7ad0c725faeacb8d8edcefb6e34e24b61aa240c110d958c6ee8",
+    "js/preferences.js": "35c3eeb9445472d57cec68be41d2a49d1ce5a31f4c57cf0333b0e07572f89e4d",
+    "css/styles.css": "f17776a14b8582bdf81f99f0e272a0bd43b8825d315f5a2adbdee911ca181d30",
+    "index.html": "b00184e2eb349a5186dd238cebd8aa8d32e805b8107729a834a189dca382817c",
+    "tests/unit.test.js": "6f9f52217414a3abdb570485e0dfa743d80ab53728dad1f385645edf5340df66",
+    "tests/fixtures.js": "03a6b3dbfd0de30bfd30c140c550d154c17431095a420dc4799ce5533cede374",
+    "scripts/browser-check.mjs": "b24dfa1134ce77ee44f175118948229619f9221a1edcb1aa03acbff0cc9b39d1"
+  }
+}

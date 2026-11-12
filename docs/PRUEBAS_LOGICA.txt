@@ -1,3 +1,6 @@
+EVIDENCIA HISTÓRICA ANTERIOR AL PR #1.
+Resultados vigentes: docs/evidencias/cierre/unit.tap y unit-report.json.
+
 Evidencia local · 2026-11-12
 Comando: node tests/unit.test.js
 Entorno: Node v26.1.0

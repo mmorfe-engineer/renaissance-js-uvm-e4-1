@@ -1,37 +1,54 @@
-# Validación · evidencia del 12 de noviembre de 2026
+# Validación posterior al merge
 
-## Resultados actuales
+## Ejecución y procedencia
 
-Entorno Linux, Node v26.1.0, Playwright 1.63.0, Chromium 153.0.8010.12, axe-core 4.10.3.
+Código de integración: `c4ab9c15763b18fdc07dfc3c162cb959938de73b`, merge normal del PR #1. Entorno Linux, Node v26.1.0, Playwright 1.63.0, Chromium 153.0.8010.12 y axe-core 4.10.3. Informes con fecha real y hashes de los archivos evaluados en [evidencias/cierre](evidencias/cierre/).
 
-- `npm test`: **18 pruebas, 18 aprobadas, 0 fallos**. Validación, debounce, URLs, normalización, HTTP, red, abort, JSON y preferencias.
-- `npm run test:browser`: **30 comprobaciones aprobadas, 0 fallos, 0 excepciones JS**. Evidencia: [browser-report.json](evidencias/browser-report.json).
-- Responsive: sin overflow y controles visibles de al menos 44 px en **320, 375, 768, 1024 y 1440 px**. Capturas de los cinco anchos en `artifacts/`; muestras versionadas en `docs/evidencias/`. Se inspeccionó visualmente la captura móvil de 375 px.
-- Axe WCAG A/AA: **0 infracciones detectadas** en inicio, resultado oscuro y resultado móvil claro. Esto no certifica cumplimiento completo de WCAG.
-- Teclado, enlace de salto, Enter, cinco fuentes, tema sistema/claro/oscuro, persistencia y almacenamiento bloqueado aprobados en navegador con respuestas controladas.
-- Audio controlado: invocación, error, fin de reproducción y recuperación del botón aprobados. Esto no demuestra reproducción de un recurso remoto.
+- **20 pruebas unitarias aprobadas, 0 fallos**, ejecutadas nuevamente tras integrar. [Informe estructurado](evidencias/cierre/unit-report.json) y [TAP](evidencias/cierre/unit.tap).
+- **35 comprobaciones de navegador aprobadas, 0 fallos y 0 excepciones JS**. [Informe](evidencias/cierre/browser-report.json). Usa fixtures exclusivamente de pruebas.
+- **8 comprobaciones públicas aprobadas**, con API real sin interceptar y sin fallos de las comprobaciones de UI. [Informe](evidencias/cierre/public-report.json). El resultado global es parcial por audio externo, no un éxito integral.
 
-## Sitio y proveedor reales
+Los scripts generadores leen los informes y la matriz para producir gráficos; no escriben cantidades de pruebas ni estados a mano. Los cambios documentales posteriores conservan el mismo código de aplicación; el cierre final comprueba sus hashes contra el HEAD y los recursos públicos.
 
-URL devuelta por Pages y visitada con Chromium: https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/.
+## Qué comprueban las suites
 
-Deployment inicial exitoso: https://github.com/mmorfe-engineer/renaissance-js-uvm-e4-1/actions/runs/43284501043, fuente `2b90387`. Datos en [deployment-inicial.json](evidencias/deployment-inicial.json).
+Las unitarias cubren entrada, URLs, debounce, normalización, HTTP 404/429/500, red/abort, JSON y preferencias. Incluyen conservación de pronunciaciones HTTPS únicas con fuente/licencia y ausencia de alternativas válidas.
 
-`LIVE_URL=https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/ node scripts/live-check.mjs` obtuvo:
+La suite browser comprueba estados, DOM, sinónimos, concurrencia, entrada por teclado, inyección de texto, preferencias, storage bloqueado y cinco viewports. El bloque de pronunciación prueba primera alternativa fallida y segunda disponible, fallo total y reintento, cambio de selección con promesa pendiente, retirada por nueva consulta, foco y combinaciones de dos temas y cinco fuentes. Estos recursos son simulados, no prueba del proveedor.
 
-- Dictionary API real: **HTTP 200**, `hello`, **7 definiciones**.
-- Preferencias reales: oscuro y mono persistieron tras recargar.
-- Excepciones JavaScript: **0**.
-- Audio: `hello-au.mp3` devolvió **HTTP 404** en Playwright; el botón anunció «No se pudo reproducir el audio». Curl devolvió HTTP 403 en los recursos AU y UK. No se atribuye una causa definitiva a esta diferencia entre clientes.
-- Resultado global de la prueba en vivo: **`failed-external-audio`, código 1**. No se oculta ni convierte el fallo en éxito. Informe: [live-report.json](evidencias/live-report.json); captura real: [live-hello.png](evidencias/live-hello.png).
+## GitHub Pages, API y audio: capas separadas
 
-La prueba conserva el fallo externo y comprueba igualmente búsqueda y preferencias. La mejora funcional de pronunciaciones alternativas está reservada a `morfemartin` en COLABORACION.
+Sitio visitado: https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/.
 
-## Límites pendientes
+| Capa | Resultado de esta ejecución |
+|---|---|
+| Página pública | HTTP 200; UI cargada en Chromium |
+| Dictionary API | HTTP 200 para hello, siete definiciones reales |
+| Recursos HTTP de audio | hello-au.mp3 y hello-uk.mp3: HTTP 404, text/html; ese cuerpo no cuenta como audio |
+| Reproducción del navegador | No acreditada: readyState 0, paused true; estado BLOQUEADO |
+| Fallback real | Se intentan las dos alternativas y se anuncia fallo total |
+| Escucha humana | PENDIENTE; no se sustituye por descarga ni por play() simulado |
 
-Revisión manual con lector de pantalla, zoom 200 %, escucha humana y revisión completa de interfaz por el segundo integrante todavía pendientes. Las pruebas automáticas y una captura inspeccionada no sustituyen esas comprobaciones.
+`live-check.mjs` devuelve **1**, `failed-external-audio`. `public-check.mjs` devuelve **1**, `partial-external-service`. Esos códigos se conservan; no se declara que el proveedor funcione porque la interfaz haya pasado las pruebas. [Live report](evidencias/cierre/live-report.json).
 
-Los bloqueos de la sesión anterior (Git de solo lectura, Chromium, DNS y herramientas ausentes) dejaron de impedir las verificaciones actuales. La instalación de dependencias necesitó autorización por el caché npm de solo lectura; se utilizó `/tmp/renaissance-npm-cache`. La CLI tiene acceso al repositorio y configura Pages, pero su token no incluye scope `workflow`; por ello se usa publicación nativa desde main y las plantillas permanecen en scripts/workflows.
+El HTTP 403 y timeout originales de Codespaces permanecen en [REVISION_MORFEMARTIN](REVISION_MORFEMARTIN.md). La diferencia entre entornos no demuestra por sí sola un defecto de aplicación ni una causa definitiva del fallo externo.
+
+## Responsive y accesibilidad
+
+Comprobados automáticamente en el sitio público y en pruebas controladas: **320, 375, 768, 1024 y 1440 px**, sin overflow y controles de al menos 44 px. La matriz de temas/fuentes del nuevo control también pasa. Se inspeccionaron visualmente capturas públicas de desktop claro y móvil: contenido legible, control adaptado y mensaje de fallo visible.
+
+Axe: cero infracciones detectadas en los escenarios ejecutados. Las tres auditorías sobre Pages corresponden a inicio, resultado oscuro y resultado móvil. El teclado automatizado comprueba salto al contenido y la suite de pronunciación conserva foco. No se afirma una certificación WCAG.
+
+| Revisión humana | Estado |
+|---|---|
+| Teclado completo y orden de foco en todos los escenarios | PENDIENTE |
+| Zoom real de navegador al 200 % | PENDIENTE |
+| Lector de pantalla y anuncios efectivos | PENDIENTE |
+| Escucha humana y calidad perceptual | PENDIENTE / dependiente de recurso disponible |
+
+## Capturas públicas
+
+[Desktop claro](assets/screenshots/desktop-claro.png), [desktop oscuro](assets/screenshots/desktop-oscuro.png), [móvil](assets/screenshots/movil.png), [resultado](assets/screenshots/resultado-real.png) y [pronunciaciones](assets/screenshots/pronunciaciones.png). Procedencia, fecha y navegador en public-report. No son mockups ni respuestas precargadas.
 
 ## Reproducir
 
@@ -41,7 +58,13 @@ npm test
 npx playwright install --with-deps chromium
 npm run test:browser
 LIVE_URL=https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/ node scripts/live-check.mjs
-npm run package
+node scripts/public-check.mjs
 ```
 
-Los resultados posteriores pueden variar por disponibilidad de servicios externos. Cada ejecución escribe su fecha y resultados; no declarar éxito si devuelve error.
+`SAVE_EVIDENCE=1 node scripts/public-check.mjs` actualiza capturas e informe documental. `node scripts/summarize-verification.mjs` ejecuta unitarias, registra sus resultados y toma el browser-report de la ejecución previa. `node scripts/generate-doc-graphics.mjs` regenera SVG desde esos datos y la matriz. No usar informes de otra versión de código sin comprobar hashes.
+
+Después del commit documental final se espera Pages y se repite la comprobación pública. El reporte final en dist registra ese HEAD, deployment, archivos remotos, enlaces y ZIP; no se inserta un hash circular del propio commit en sus archivos.
+
+## Presentación y enlaces
+
+Los tres diagramas Mermaid del README se parsearon y renderizaron en Chromium con Mermaid; [informe](evidencias/cierre/diagrams-report.json). Los SVG locales pasaron parseo XML. Los enlaces Markdown y recursos de imagen se comprobaron contra archivos locales y mediante HTTP; [informe de enlaces](evidencias/cierre/links-report.json). La revisión se repite tras el commit final para registrar el estado publicado.

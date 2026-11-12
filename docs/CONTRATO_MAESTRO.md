@@ -1,23 +1,29 @@
-# Contrato maestro · política vinculante de autoría
+# Contrato único de cierre académico y publicación
 
-Esta política fue recibida el 12 de noviembre de 2026, después de publicar el commit inicial `2b90387`. Se aplica antes de los siguientes commits. El contrato original solo se recibió hasta parte de la sección 19; este archivo no inventa las secciones ausentes ni sustituye los requisitos académicos registrados en RUBRICA y ENTREGA.
+Fuente vigente: instrucción del usuario «CONTRATO ÚNICO DE CIERRE ACADÉMICO Y PUBLICACIÓN», continuada con la orden post-colaborador. Sustituye las instrucciones parciales anteriores sobre presentación, contribución e información académica. Este documento registra su aplicación; no atribuye estos requisitos de presentación al profesor.
 
-## DISTRIBUCIÓN REAL DE COMMITS
+## Base y preservación
 
-GitHub debe permitir observar el avance y los commits de los dos integrantes reales: `mmorfe-engineer`, propietario e integrante principal, y `morfemartin`, colaborador real. No realizar todos los commits del proyecto desde el propietario ni atribuir artificialmente commits al colaborador. No modificar `git user.name`, `git user.email`, `--author` ni otra metadata para simular participación. La autoría procede de la cuenta y entorno reales de cada integrante.
+Repositorio único: mmorfe-engineer/renaissance-js-uvm-e4-1, main y Pages canónicos. Trabajo incremental, sin reconstruir, reescribir historia, sustituir propietario ni eliminar evidencia válida. Los reportes históricos se distinguen de los actuales.
 
-El propietario puede cerrar estructura, arquitectura JavaScript, Dictionary API, debounce, validaciones, datos, renderizado, estados, errores, integración, testing, documentación técnica, GitHub, Pages y deployment. Cada commit debe representar un incremento real; se prohíben commits vacíos y fragmentación artificial.
+## Autoría e integración
 
-Reservar al colaborador un bloque técnico real, coherente y sustancial. Sus áreas preferentes son HTML semántico, CSS y responsive, temas, cinco tipografías, accesibilidad visual y teclado, hover/focus, pronunciación y experiencia UI, pruebas manuales y correcciones derivadas. Debe revisar y probar, modificar cuando corresponda y verificar el comportamiento; volver a guardar archivos no constituye contribución.
+Solo se presentan los integrantes humanos: Martin Morfe.°. / mmorfe-engineer y Martin Alejandro Morfe Carballo / morfemartin. No trailers de herramientas ni afirmaciones falsas sobre ausencia de IA. El bloque real de pronunciaciones alternativas, control accesible, responsive y pruebas se ejecutó desde morfemartin y se integró mediante PR #1 y merge normal. Sus dos commits se conservan con autor y committer originales; nunca se sustituye evidencia de commits por permisos de collaborator.
 
-Antes de construir nuevos incrementos: inspeccionar los cambios, clasificar el núcleo del propietario, identificar mejoras reservadas, evitar consumir esa contribución y preparar una tarea con archivos, objetivo y criterio de terminado. El estado real prevalece sobre una descripción anterior: el commit inicial ya publicado contiene la interfaz existente. No reescribirlo para aparentar reparto previo.
+## Presentación y trazabilidad
 
-## Flujo e integración
+README funciona como portada, demo, ficha académica, mapa técnico, evidencia e índice. Incluye hero original, badges verdaderos, capturas reales con leyendas, arquitectura/flujo/mapa Mermaid con leyendas, JavaScript enlazado, pruebas medidas, decisiones, estructura y colaboración. Gráficos SVG derivados de informes y de CUMPLIMIENTO_PLIEGO, sin métricas inventadas ni certificación WCAG.
 
-`main` recibe el trabajo principal. El colaborador acepta el acceso, obtiene el proyecto desde su entorno y crea `feature/ui-accessibility-morfemartin`, modifica, verifica, commitea, hace push y abre PR o entrega su rama. El agente puede preparar la tarea o rama, pero nunca sus commits.
+CUMPLIMIENTO_PLIEGO es la única matriz canónica, con columnas ID interno, requisito fiel, implementación, evidencia y estado. Los TR son internos, no numeración oficial. Estados: VERIFICADO, PENDIENTE, BLOQUEADO y NO APLICA. RUBRICA enlaza esta fuente.
 
-Integrar preferentemente mediante PR con merge normal conservando commits y autoría. No usar squash que elimine evidencia individual, reescribir autores ni hacer cherry-pick que atribuya el trabajo al propietario. Un cherry-pick solo es admisible con razón técnica y autor original conservado. Verificar después ambos autores en GitHub.
+## Verificación y cierre
 
-No existe un número objetivo de commits. Deben surgir del trabajo real y permitir explicar la evolución. Continuar el trabajo propio, testing y publicación mientras el colaborador trabaja; el requisito «commits de los integrantes» sigue abierto hasta verificar commits auténticos de ambos en el repositorio canónico. Ser collaborator no basta.
+Tras merge: ejecutar suites, comprobar Pages con navegador y búsqueda real, preferencias, responsive y axe. Separar respuesta API, HTTP del audio, reproducción de navegador y escucha humana. No ocultar 403/timeouts ni convertir pruebas simuladas en reproducción real. Revisión humana de teclado/foco, zoom 200 %, lector y escucha queda pendiente si no se ejecuta legítimamente.
 
-El informe final distingue commits y bloque funcional de cada integrante, PR o mecanismo de integración y evidencia de autoría intacta. La tarea concreta reservada está en [COLABORACION](COLABORACION.md).
+Actualizar datos académicos solo desde información humana confirmada. El video de ambos requiere funcionamiento y código, énfasis JS y máximo diez minutos. Una guía sin grabación no cumple ese requisito.
+
+Tras integrar documentación: esperar deployment, verificar HTTP, aplicación, recursos, enlaces y HEAD; regenerar ZIP/manifiestos; comparar ZIP con Git y recursos con el HEAD desplegado. FINAL_DELIVERY registra solo evidencia real y distingue pendientes. No declarar entrega académica completada mientras falten video, contribución, datos obligatorios o verificaciones exigidas.
+
+## Estado de aplicación
+
+Fases A–D: inspección, paquete, ejecución real del colaborador y PR #1 integrado. Fases E–G: validación repetida, límites manuales/externos documentados y presentación profesional. Fases H–J: comprobación final de deployment, ZIP y reporte se registran en dist/FINAL_DELIVERY.json. Video y entrega manual UVM requieren intervención humana.

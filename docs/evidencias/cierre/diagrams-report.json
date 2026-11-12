@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-12T21:32:08.705Z",
+  "tool": "Mermaid",
+  "version": "12.3.0",
+  "source": "README.md",
+  "diagrams": [
+    {
+      "index": 1,
+      "parsed": true,
+      "rendered": true
+    },
+    {
+      "index": 2,
+      "parsed": true,
+      "rendered": true
+    },
+    {
+      "index": 3,
+      "parsed": true,
+      "rendered": true
+    }
+  ]
+}

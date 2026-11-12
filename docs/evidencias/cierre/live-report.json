@@ -1,0 +1,37 @@
+{
+  "status": "failed-external-audio",
+  "date": "2026-11-12T21:23:24.282Z",
+  "url": "https://mmorfe-engineer.github.io/renaissance-js-uvm-e4-1/",
+  "apiStatus": 200,
+  "definitions": 7,
+  "audioStatus": "No se confirmó descarga y reproducción real.",
+  "audioResources": [
+    {
+      "url": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3",
+      "status": 404,
+      "bytes": 58296,
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3",
+      "status": 404,
+      "bytes": 58296,
+      "contentType": "text/html"
+    }
+  ],
+  "externalFailures": [
+    {
+      "playback": {
+        "url": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3",
+        "readyState": 0,
+        "paused": true,
+        "ended": false
+      },
+      "audioMessage": "No se pudo reproducir el audio. Se probaron todas las alternativas. Puedes volver a intentarlo.",
+      "downloaded": false,
+      "reproduced": false
+    }
+  ],
+  "preferences": "Tema oscuro y fuente mono persistieron tras recargar",
+  "errors": []
+}

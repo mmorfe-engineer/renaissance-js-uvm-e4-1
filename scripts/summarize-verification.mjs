@@ -1,0 +1,14 @@
+import { execFileSync, spawnSync } from 'node:child_process';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+mkdirSync('docs/evidencias/cierre', { recursive:true });
+const run = spawnSync(process.execPath, ['--test','--test-reporter=tap','tests/unit.test.js'], { encoding:'utf8' });
+writeFileSync('docs/evidencias/cierre/unit.tap', run.stdout + run.stderr);
+const metric = name => { const match = run.stdout.match(new RegExp(`^# ${name} (\\d+)$`, 'm')); if (!match) throw new Error(`TAP metric missing: ${name}`); return Number(match[1]); };
+const sourceCommit = execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+const files = ['js/api.js','js/app.js','js/ui.js','js/utils.js','js/preferences.js','css/styles.css','index.html','tests/unit.test.js','tests/fixtures.js','scripts/browser-check.mjs'];
+const sourceSHA256 = Object.fromEntries(files.map(file => [file,createHash('sha256').update(readFileSync(file)).digest('hex')]));
+const unit = { date:new Date().toISOString(), sourceCommit, command:'node --test --test-reporter=tap tests/unit.test.js', tests:metric('tests'), passed:metric('pass'), failed:metric('fail'), exitCode:run.status, sourceSHA256 };
+writeFileSync('docs/evidencias/cierre/unit-report.json',JSON.stringify(unit,null,2)+'\n');
+copyFileSync('artifacts/browser-report.json','docs/evidencias/cierre/browser-report.json');
+console.log(JSON.stringify(unit)); if (run.status) process.exitCode=1;
