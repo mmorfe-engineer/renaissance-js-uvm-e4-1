@@ -143,6 +143,70 @@ try {
     await search('injection'); await textIncludes('.entry h2', '<img'); assert.equal(await page.locator('#results img').count(), 0);
     await context.unroute('https://api.dictionaryapi.dev/**');
   });
+  // Estos recursos son sintéticos y solo verifican la lógica, nunca disponibilidad real.
+  const alternatives = fixture('alternatives');
+  alternatives[0].phonetics = [
+    { text: '/one/', audio: 'https://audio.example.test/first.mp3' },
+    { text: '/two/', audio: 'https://audio.example.test/second.mp3' }
+  ];
+  await context.route('https://api.dictionaryapi.dev/**', route => route.fulfill({ json: alternatives }));
+  await search('alternatives'); await textIncludes('.entry h2', 'alternatives');
+  await check('Primera pronunciación falla: se intenta la alternativa una vez, sin perder foco', async () => {
+    await page.evaluate(() => {
+      window.attempts = [];
+      HTMLMediaElement.prototype.play = function() {
+        window.attempts.push(this.src);
+        return this.src.endsWith('first.mp3') ? Promise.reject(new Error('unavailable')) : Promise.resolve();
+      };
+    });
+    await page.locator('.audio-button').focus(); await page.keyboard.press('Enter');
+    await textIncludes('.audio-message', 'Reproduciendo alternativa 2 de 2');
+    assert.equal(await page.locator('.audio-select').inputValue(), '1');
+    assert.deepEqual(await page.evaluate(() => window.attempts.map(url => url.split('/').at(-1))), ['first.mp3', 'second.mp3']);
+    assert.equal(await page.locator(':focus').getAttribute('class'), 'audio-button');
+    assert.equal(await page.locator('audio').getAttribute('controls'), null);
+  });
+  await check('Fallo total acotado: anuncia alternativas agotadas y permite reintentar', async () => {
+    await page.evaluate(() => { window.attempts = []; HTMLMediaElement.prototype.play = function() { window.attempts.push(this.src); return Promise.reject(new Error('offline')); }; });
+    await page.locator('.audio-select').selectOption('0'); await page.locator('.audio-button').click();
+    await textIncludes('.audio-message', 'Se probaron todas las alternativas');
+    assert.equal(await page.evaluate(() => window.attempts.length), 2);
+    assert.equal(await page.locator('.audio-button').getAttribute('aria-disabled'), 'false');
+    await page.locator('.audio-button').click(); await page.waitForFunction(() => window.attempts.length === 4);
+  });
+  await check('Cambio de pronunciación cancela un intento pendiente sin reproducción tardía', async () => {
+    await page.evaluate(() => { window.attempts = []; HTMLMediaElement.prototype.play = function() { window.attempts.push(this.src); return new Promise(resolve => setTimeout(resolve, 100)); }; });
+    await page.locator('.audio-button').click(); await page.locator('.audio-select').selectOption('1');
+    await page.waitForTimeout(180);
+    assert.equal(await page.locator('.audio-select').inputValue(), '1');
+    await textIncludes('.audio-message', 'Pronunciación seleccionada');
+    assert.equal(await page.locator('.audio-button').getAttribute('aria-disabled'), 'false');
+    assert.equal(await page.evaluate(() => window.attempts.length), 1);
+  });
+  await check('Nueva consulta retira y cancela el control de audio anterior', async () => {
+    await page.evaluate(() => { HTMLMediaElement.prototype.play = () => new Promise(resolve => setTimeout(resolve, 120)); });
+    await page.locator('.audio-button').click(); await search('replacement');
+    await page.waitForTimeout(220); assert.equal(await page.locator('.audio-message').textContent(), '');
+  });
+  await check('Selector accesible en cinco viewports, dos temas y cinco tipografías', async () => {
+    for (const width of [320, 375, 768, 1024, 1440]) {
+      await page.setViewportSize({ width, height: 960 });
+      for (const theme of ['light', 'dark']) {
+        await page.locator('#theme').selectOption(theme);
+        for (const font of ['editorial', 'classic', 'sans', 'humanist', 'mono']) {
+          await page.locator('#font').selectOption(font); await page.evaluate(() => document.fonts.ready);
+          assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+          for (const selector of ['.audio-select', '.audio-button']) {
+            const box = await page.locator(selector).boundingBox();
+            assert.ok(box.x >= 0 && box.x + box.width <= width + 1 && box.height >= 44);
+          }
+        }
+      }
+    }
+    await audit();
+    await page.locator('#font').selectOption('editorial'); await page.locator('#theme').selectOption('light');
+  });
+  await context.unroute('https://api.dictionaryapi.dev/**');
   // Restaurar datos con una única ruta para las capturas responsive.
   await context.route('https://api.dictionaryapi.dev/**', route => route.fulfill({ json: fixture('serendipity') }));
   await search('serendipity'); await textIncludes('.entry h2', 'serendipity');

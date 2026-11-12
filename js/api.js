@@ -13,10 +13,20 @@ export class DictionaryError extends Error {
 export function normalizeEntries(payload) {
   return array(payload).filter(entry => entry && text(entry.word)).map(entry => {
     const phonetics = array(entry.phonetics).filter(Boolean);
+    const seenAudio = new Set();
+    const pronunciations = phonetics.flatMap(item => {
+      const url = safeUrl(item.audio);
+      if (!url || seenAudio.has(url)) return [];
+      seenAudio.add(url);
+      return [{ url, text: text(item.text), sourceUrl: safeUrl(item.sourceUrl),
+        license: item.license && text(item.license.name)
+          ? { name: text(item.license.name), url: safeUrl(item.license.url) } : null }];
+    });
     return {
       word: text(entry.word),
       phonetics: strings([entry.phonetic, ...phonetics.map(item => item.text)]),
-      audio: phonetics.map(item => safeUrl(item.audio)).find(Boolean) || '',
+      pronunciations,
+      audio: pronunciations[0]?.url || '', // Compatibilidad con consumidores existentes.
       meanings: array(entry.meanings).filter(Boolean).map(meaning => {
         const definitions = array(meaning.definitions).filter(item => item && text(item.definition)).map(item => ({
           definition: text(item.definition), example: text(item.example), synonyms: strings(item.synonyms)

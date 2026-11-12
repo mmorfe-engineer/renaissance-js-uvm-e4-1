@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "date": "2026-11-12T20:58:18.035Z",
+  "error": "page.waitForResponse: Timeout 30000ms exceeded while waiting for event \"response\"",
+  "errors": []
+}

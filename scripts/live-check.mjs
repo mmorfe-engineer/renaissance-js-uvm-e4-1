@@ -27,18 +27,32 @@ try {
   const response = await responsePromise; assert.equal(response.status(), 200);
   await page.waitForSelector('.entry h2'); assert.equal(await page.locator('.entry h2').first().textContent(), 'hello');
   assert.ok(await page.locator('.definition-list li').count() > 0);
-  const audio = page.locator('audio').first(); let audioStatus = 'La API no suministró audio.';
+  const audio = page.locator('audio').first();
+  const audioResources = []; let audioStatus = 'La API no suministró audio.';
   if (await audio.count()) {
-    // La descarga real acredita disponibilidad del recurso, no escucha humana del sonido.
-    const resource = await context.request.get(await audio.getAttribute('src'));
-    audioStatus = `Recurso de audio HTTP ${resource.status()}`;
-    if (!resource.ok()) externalFailures.push({ resource: await audio.getAttribute('src'), status: resource.status() });
-    else assert.ok((await resource.body()).length > 0);
+    const select = page.locator('.audio-select').first();
+    const count = await select.count() ? await select.locator('option').count() : 1;
+    // Cada URL procede del DOM construido con la respuesta real de Dictionary API.
+    for (let i = 0; i < count; i++) {
+      if (await select.count()) await select.selectOption(String(i));
+      const url = await audio.getAttribute('src');
+      try {
+        const resource = await context.request.get(url, { timeout: 10000 });
+        audioResources.push({ url, status: resource.status(), bytes: (await resource.body()).length,
+          contentType: resource.headers()['content-type'] || '' });
+      } catch (error) { audioResources.push({ url, error: error.message }); }
+    }
+    if (await select.count()) await select.selectOption('0');
     await page.locator('.audio-button').first().click();
-    await page.waitForFunction(() => { const a = document.querySelector('audio'); return a && ((!a.paused && a.readyState >= 2) || a.ended || document.querySelector('.audio-message')?.textContent); });
+    await page.waitForFunction(() => document.querySelector('.audio-control')?.getAttribute('aria-busy') === 'false', { }, { timeout: Math.max(15000, count * 9000) });
+    const playback = await audio.evaluate(a => ({ url: a.src, readyState: a.readyState, paused: a.paused, ended: a.ended }));
+    const selectedResource = audioResources.find(resource => resource.url === playback.url);
+    const downloaded = selectedResource?.status >= 200 && selectedResource.status < 300 && selectedResource.bytes > 0 && selectedResource.contentType.toLowerCase().startsWith('audio/');
+    const reproduced = playback.readyState >= 2 && (!playback.paused || playback.ended);
     const audioMessage = await page.locator('.audio-message').first().textContent();
-    if (audioMessage) externalFailures.push({ playback: audioMessage });
-  }
+    audioStatus = downloaded && reproduced ? 'Recurso real descargado y reproducción confirmada por Chromium; no acredita escucha humana.' : 'No se confirmó descarga y reproducción real.';
+    if (!downloaded || !reproduced) externalFailures.push({ playback, audioMessage, downloaded, reproduced });
+  } else externalFailures.push({ audio: 'La API no suministró pronunciaciones reproducibles.' });
   assert.deepEqual(errors, []);
   const definitions = await page.locator('.definition-list li').count();
   await mkdir(path.join(root, 'artifacts'), { recursive: true });
@@ -50,7 +64,7 @@ try {
   assert.equal(await page.locator('#font').inputValue(), 'mono');
   assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
   await mkdir(path.join(root, 'artifacts'), { recursive: true });
-  report = { status: externalFailures.length ? 'failed-external-audio' : 'passed', date: new Date().toISOString(), url: page.url(), apiStatus: response.status(), definitions, audioStatus, externalFailures, preferences: 'Tema oscuro y fuente mono persistieron tras recargar', errors };
+  report = { status: externalFailures.length ? 'failed-external-audio' : 'passed', date: new Date().toISOString(), url: page.url(), apiStatus: response.status(), definitions, audioStatus, audioResources, externalFailures, preferences: 'Tema oscuro y fuente mono persistieron tras recargar', errors };
   if (externalFailures.length) process.exitCode = 1;
   console.log(JSON.stringify(report));
 } catch (error) {
