@@ -116,3 +116,24 @@ for (const saved of ['{broken', JSON.stringify({ theme: 'unknown', font: 'unknow
     assert.equal(env.root.dataset.theme, 'light'); assert.equal(env.root.dataset.font, 'editorial');
   });
 }
+
+
+test('conserva pronunciaciones HTTPS únicas con fuente y licencia, sin URLs inseguras', () => {
+  const [entry] = normalizeEntries([{ word: 'hello', phonetics: [
+    { audio: 'https://audio.example.test/first.mp3', text: '/one/', sourceUrl: 'https://example.test/source', license: { name: 'CC BY', url: 'https://example.test/license' } },
+    { audio: 'https://audio.example.test/first.mp3' },
+    { audio: '//audio.example.test/second.mp3', text: '/two/' },
+    { audio: 'javascript:alert(1)' }, { audio: 'http://example.test/insecure.mp3' }, null
+  ] }]);
+  assert.equal(entry.pronunciations.length, 2);
+  assert.equal(entry.audio, entry.pronunciations[0].url);
+  assert.deepEqual(entry.pronunciations[0], { url: 'https://audio.example.test/first.mp3', text: '/one/', sourceUrl: 'https://example.test/source', license: { name: 'CC BY', url: 'https://example.test/license' } });
+  assert.equal(entry.pronunciations[1].url, 'https://audio.example.test/second.mp3');
+});
+
+test('sin pronunciaciones válidas conserva una colección vacía', () => {
+  for (const phonetics of [undefined, [], [null, { audio: 'data:audio/mp3,x' }]]) {
+    const [entry] = normalizeEntries([{ word: 'hello', phonetics }]);
+    assert.deepEqual(entry.pronunciations, []); assert.equal(entry.audio, '');
+  }
+});
